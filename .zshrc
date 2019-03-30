@@ -1,10 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$PATH:/usr/lib/jvm/jdk-11/bin
 
-PATH=$PATH:/home/francesco/.local/bin
+PATH=$PATH:$HOME/.local/bin
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/francesco/.oh-my-zsh"
+  export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias load_arduino="echo avrdude -p m2560 -P /dev/ttyACM0 -c -b 115200 -D -q -V -C /usr/share/arduino/hardware/tools/avr/../avrdude.conf -c wiring -U flash:w:filename.hex:i"
 alias scl="scalac *.scala"
-. /home/francesco/bin/anaconda3/etc/profile.d/conda.sh
+. $HOME/bin/anaconda3/etc/profile.d/conda.sh
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -111,7 +111,7 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # autojump configuration
 
-[[ -s /home/francesco/.autojump/etc/profile.d/autojump.sh ]] && source /home/francesco/.autojump/etc/profile.d/autojump.sh
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source /home/francesco/.autojump/etc/profile.d/autojump.sh
 
 autoload -U compinit && compinit -u
 
