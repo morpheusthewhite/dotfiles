@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias load_arduino="echo avrdude -p m2560 -P /dev/ttyACM0 -c -b 115200 -D -q -V -C /usr/share/arduino/hardware/tools/avr/../avrdude.conf -c wiring -U flash:w:filename.hex:i"
 alias scl="scalac *.scala"
-. $HOME/bin/anaconda3/etc/profile.d/conda.sh
+. $HOME/bin/anaconda3/etc/profile.d/conda.sh 2> /dev/null
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
