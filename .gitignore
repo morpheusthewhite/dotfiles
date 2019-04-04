@@ -7,3 +7,4 @@
 !.config/zathura/zathurarc
 !.gitignore
 !.oh-my-zsh/custom/themes/zeta.zsh-theme
+!.tmux.conf

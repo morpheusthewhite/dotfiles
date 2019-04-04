@@ -65,7 +65,7 @@ ZSH_THEME="zeta"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git debian autojump tmux
+  git debian autojump
 )
 
 # automatically starts tmux
