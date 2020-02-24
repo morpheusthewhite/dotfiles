@@ -135,3 +135,6 @@ source ~/.zsh_profile
 # unset __conda_setup
 # # <<< conda initialize <<<
 
+# pywal autostart
+# cat .cache/wal/sequences > /dev/null &
+
