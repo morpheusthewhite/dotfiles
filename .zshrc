@@ -10,7 +10,7 @@ PATH=$PATH:$HOME/.local/bin
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="zeta"
+ZSH_THEME="mortalscumbag"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -65,7 +65,7 @@ ZSH_THEME="zeta"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git debian autojump tmux 
+  git autojump archlinux colored-man-pages 
 )
 
 # automatically starts tmux
@@ -106,15 +106,32 @@ alias load_arduino="echo avrdude -p m2560 -P /dev/ttyACM0 -c -b 115200 -D -q -V 
 alias scl="scalac *.scala"
 alias xo="xdg-open"
 
-. $HOME/bin/anaconda3/etc/profile.d/conda.sh 2> /dev/null
+. /opt/miniconda3/etc/profile.d/conda.sh 2> /dev/null
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # autojump configuration
 
-[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source /home/francesco/.autojump/etc/profile.d/autojump.sh
+#[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source /home/francesco/.autojump/etc/profile.d/autojump.sh
 
-autoload -U compinit && compinit -u
+#autoload -U compinit && compinit -u
+
+source ~/.zsh_profile
+
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/opt/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/opt/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
 
