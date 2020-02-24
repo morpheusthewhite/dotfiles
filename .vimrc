@@ -69,9 +69,12 @@ syntax on
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 
-" Plugin 'jnurmine/Zenburn'
+Plugin 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
+colorscheme challenger_deep
 
-" :colorscheme Zenburn
+" Plugin 'dracula/vim', { 'name': 'dracula' }
+" colorscheme dracula
+
 " Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " various settings for powerline
@@ -134,3 +137,6 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'preservim/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
+" git plugin 
+Plugin 'tpope/vim-fugitive'
