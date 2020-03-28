@@ -140,3 +140,6 @@ map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 " git plugin 
 Plugin 'tpope/vim-fugitive'
+
+" avoid auto insert of newlines
+set formatoptions-=tc
