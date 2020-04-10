@@ -1,6 +1,6 @@
 set nocompatible              " required
 filetype off                  " required
-
+    	
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -37,14 +37,24 @@ nnoremap <space> za
 " Enable smart folding
 Plugin 'tmhedberg/SimpylFold'
 
-au BufNewFile,BufRead *.py,*.cpp,*.c,*.h
-    \ set tabstop=4
-    \| set softtabstop=4
-    \| set shiftwidth=4
-    \| set textwidth=79
-    \| set expandtab
-    \| set autoindent
-    \| set fileformat=unix
+"au BufNewFile,BufRead *.py,*.cpp,*.c,*.h
+    "\ set tabstop=4
+    "\| set softtabstop=4
+    "\| set shiftwidth=4
+    "\| set textwidth=79
+    "\| set expandtab
+    "\| set autoindent
+    "\| set fileformat=unix
+
+" create a coherent and good indentation level over all files
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set textwidth=79
+set expandtab
+set autoindent
+set fileformat=unix
+
 
 Plugin 'vim-scripts/indentpython.vim'
 
