@@ -22,14 +22,14 @@ function setup_workspaces_monitor_polybar(){
 		bspc monitor "${other_monitor}" -d VI VII VIII IX
 		
 		# start polybar also on second monito
-		polybar example_external &
+        polybar example_external &
 	fi
 }
 
 ##########################################
 
 sxhkd &
-compton &
+picom &
 wal -i /home/francesco/Pictures/ct0k3stx74541.jpg --backend wal --saturate 1.0 &
 setxkbmap -layout it -variant us
 dunst &
