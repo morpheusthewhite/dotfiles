@@ -1,0 +1,6 @@
+# Dark theme.
+#theme: "~/.cache/wal/colors-rofi-dark.rasi";
+theme: "~/.config/rofi/onedark.rasi"
+rofi.theme: /usr/share/rofi/themes/DarkBlue.rasi
+rofi.modi: run,fb:~/.config/rofi/rofi-file-browser.sh
+rofi.show: run

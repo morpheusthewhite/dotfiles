@@ -11,7 +11,7 @@ super + Return
 	#dmenu_run
 
 super + d
-	rofi -show-icons -show run -modi run,combi
+	rofi -show-icons -show run
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -38,8 +38,8 @@ super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
 # swap the current node and the biggest node
-super + g
-	bspc node -s biggest.local
+#super + g
+	#bspc node -s biggest.local
 
 #
 # state/flags
