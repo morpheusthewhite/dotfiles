@@ -34,6 +34,7 @@ wal -i /home/francesco/Pictures/ct0k3stx74541.jpg --backend wal --saturate 1.0 &
 setxkbmap -layout it -variant us
 dunst &
 # source "/home/francesco/.cache/wal/colors.sh"
+wmname LG3D
 
 setup_workspaces_monitor_polybar
 
