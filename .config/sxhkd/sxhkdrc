@@ -133,10 +133,10 @@ super + c
 
 # brightness control
 XF86MonBrightnessUp
-	xbacklight -inc 2
+	xbacklight -inc 4
 
 XF86MonBrightnessDown
-	xbacklight -dec 2
+	xbacklight -dec 4
 
 # volume control
 XF86Audio{Raise,Lower}Volume
