@@ -153,3 +153,6 @@ Plugin 'tpope/vim-fugitive'
 
 " avoid auto insert of newlines
 set formatoptions-=tc
+
+" git integration
+Plugin 'airblade/vim-gitgutter'
