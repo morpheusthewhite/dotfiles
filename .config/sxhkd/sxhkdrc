@@ -159,3 +159,7 @@ super + alt + t
 # spotify
 super + alt + s
 	spotify
+
+# ranger 
+super + r
+    urxvt -e ranger
