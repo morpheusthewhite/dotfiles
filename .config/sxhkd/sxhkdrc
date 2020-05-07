@@ -154,7 +154,7 @@ Print
 
 # telegram
 super + alt + t
-	telegram-desktop
+	telegram-desktop && bspc desktop -f '^5'
 
 # spotify
 super + alt + s
