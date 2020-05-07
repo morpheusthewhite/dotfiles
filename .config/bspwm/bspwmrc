@@ -28,6 +28,8 @@ function setup_workspaces_monitor_polybar(){
 
 ##########################################
 
+setup_workspaces_monitor_polybar
+
 sxhkd &
 picom &
 wal -i /home/francesco/Pictures/ct0k3stx74541.jpg --backend wal --saturate 1.0 &
@@ -35,9 +37,6 @@ setxkbmap -layout it -variant us
 dunst &
 # source "/home/francesco/.cache/wal/colors.sh"
 wmname LG3D
-
-setup_workspaces_monitor_polybar
-
 
 bspc config normal_border_color $color0
 bspc config focused_border_color $color7
