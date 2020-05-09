@@ -7,7 +7,7 @@
 # handle setup of workspace (both in case of single and double monitor)
 function setup_workspaces_monitor_polybar(){
 	other_monitor=$(xrandr -q | awk '{if($2=="connected" && $1!="eDP1") {print $1}}')
-	polybar example &
+	#polybar example &
 
 	if [[ -z ${other_monitor} ]] 
 	then
@@ -22,7 +22,7 @@ function setup_workspaces_monitor_polybar(){
 		bspc monitor "${other_monitor}" -d VI VII VIII IX
 		
 		# start polybar also on second monito
-        polybar example_external &
+        #polybar example_external &
 	fi
 }
 
@@ -32,11 +32,13 @@ setup_workspaces_monitor_polybar
 
 sxhkd &
 picom &
-wal -i /home/francesco/Pictures/ct0k3stx74541.jpg --backend wal --saturate 1.0 &
+wal -i /home/francesco/Pictures/astronaut.jpg --backend wal --saturate 1.0 &
 setxkbmap -layout it -variant us
 dunst &
+~/.config/polybar/launch.sh
 # source "/home/francesco/.cache/wal/colors.sh"
 wmname LG3D
+# setxkbmap -layout it -variant us # keyboard layout, not needed to set it at every start
 
 bspc config normal_border_color $color0
 bspc config focused_border_color $color7
@@ -63,6 +65,6 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a feh state=floating
-bspc rule -a "telegram-desktop" desktop='^5' follow=on
+bspc rule -a "TelegramDesktop" desktop='^5' follow=on
 
 # bspc rule -a firefox desktop='^2' follow=on
