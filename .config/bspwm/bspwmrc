@@ -66,5 +66,7 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a feh state=floating
 bspc rule -a "TelegramDesktop" desktop='^5' follow=on
+bspc rule -a "Mailspring" desktop='^4' follow=on
+bspc rule -a "Slack" desktop='^4' follow=on
 
 # bspc rule -a firefox desktop='^2' follow=on
