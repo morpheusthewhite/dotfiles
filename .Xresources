@@ -99,3 +99,7 @@ URxvt.urlButton: 1
 
 ! autocopy
 URxvt.clipboard.autocopy: true
+
+! no scrool on secondary screen
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
