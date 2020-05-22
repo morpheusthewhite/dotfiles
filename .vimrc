@@ -79,8 +79,9 @@ syntax on
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 
-Plugin 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
-colorscheme challenger_deep
+" Plugin 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
+Plugin 'dylanaraps/wal.vim'
+colorscheme wal
 
 " Plugin 'dracula/vim', { 'name': 'dracula' }
 " colorscheme dracula
