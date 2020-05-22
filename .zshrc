@@ -138,3 +138,12 @@ source ~/.zsh_profile
 # pywal autostart
 # cat .cache/wal/sequences > /dev/null &
 
+# see more tricks here
+# https://www.arp242.net/zshrc.html
+
+insert_sudo() { zle beginning-of-line; zle -U "sudo "; }
+
+zle -N insert_sudo insert_sudo
+
+bindkey '^A' insert_sudo
+
