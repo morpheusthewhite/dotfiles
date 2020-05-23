@@ -68,5 +68,6 @@ bspc rule -a feh state=floating
 bspc rule -a "TelegramDesktop" desktop='^5' follow=on
 bspc rule -a "Mailspring" desktop='^4' follow=on
 bspc rule -a "Slack" desktop='^4' follow=on
+bspc rule -a Zathura state=fullscreen
 
 # bspc rule -a firefox desktop='^2' follow=on
