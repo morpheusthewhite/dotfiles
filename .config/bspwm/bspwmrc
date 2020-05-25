@@ -9,24 +9,34 @@ function setup_workspaces_monitor_polybar(){
 	other_monitor=$(xrandr -q | awk '{if($2=="connected" && $1!="eDP1") {print $1}}')
 	#polybar example &
 
-	if [[ -z ${other_monitor} ]] 
-	then
+	if [ -z "${other_monitor}" -o "$disable_dual" == "true" ] 
+    then
 		echo "Single monitor"
 		bspc monitor -d I II III IV V VI VII VIII IX 
 	else
 		echo "Double monitor"
 
-		xrandr --output eDP1 --primary --output "${other_monitor}" --right-of eDP1
+        if [ "$monitor_right" == "false"  ]
+            then
+		    xrandr --output eDP1 --primary --output "${other_monitor}" --mode "${external_resolution}" --left-of eDP1
 
-		bspc monitor eDP1 -d I II III IV V
+            # needed when the second monitor is on the left
+            bspc monitor "${other_monitor}" -s eDP1 
+        else 
+		    xrandr --output eDP1 --primary --output "${other_monitor}" ---mode "${external_resolution}" --right-of eDP1
+        fi
+
+        bspc monitor eDP1 -d I II III IV V
 		bspc monitor "${other_monitor}" -d VI VII VIII IX
-		
-		# start polybar also on second monito
-        #polybar example_external &
+        
 	fi
 }
 
 ##########################################
+
+# load configuration
+source .config/bspwm/bspwm.conf
+touch boh
 
 setup_workspaces_monitor_polybar
 
@@ -38,7 +48,6 @@ dunst &
 ~/.config/polybar/launch.sh
 # source "/home/francesco/.cache/wal/colors.sh"
 wmname LG3D
-# setxkbmap -layout it -variant us # keyboard layout, not needed to set it at every start
 
 bspc config normal_border_color $color0
 bspc config focused_border_color $color7
