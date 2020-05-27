@@ -16,17 +16,21 @@ function setup_workspaces_monitor_polybar(){
 	else
 		echo "Double monitor"
 
-        if [ "$monitor_right" == "false"  ]
-            then
-		    xrandr --output eDP1 --primary --output "${other_monitor}" --mode "${external_resolution}" --left-of eDP1
-
-            # needed when the second monitor is on the left
-            bspc monitor "${other_monitor}" -s eDP1 
-        else 
-		    xrandr --output eDP1 --primary --output "${other_monitor}" ---mode "${external_resolution}" --right-of eDP1
+        if [ ! -z "${external_resolution}"  ]; then
+            other_monitor_mode=( --mode "${external_resolution}" )
         fi
 
-        bspc monitor eDP1 -d I II III IV V
+        if [ "$monitor_right" == "false"  ]
+            then
+		    xrandr --output "${primary_monitor}" --primary --output "${other_monitor}" "${other_monitor_mode[@]}" --left-of "${primary_monitor}"
+
+            # needed when the second monitor is on the left
+            bspc monitor "${other_monitor}" -s "${primary_monitor}"
+        else 
+		    xrandr --output "${primary_monitor}" --primary --output "${other_monitor}" "${other_monitor_mode[@]}" --right-of "${primary_monitor}"
+        fi
+
+        bspc monitor "${primary_monitor}" -d I II III IV V
 		bspc monitor "${other_monitor}" -d VI VII VIII IX
         
 	fi
