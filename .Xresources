@@ -103,3 +103,16 @@ URxvt.clipboard.autocopy: true
 ! no scrool on secondary screen
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
+
+! Some perl externsions
+! URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
+! URxvt.url-select.launcher:  chromium
+! URxvt.url-select.underline: true
+! URxvt.keysym.M-u:           perl:url-select:select_next
+! URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+! URxvt.keysym.M-s:           perl:keyboard-select:search
+
+! settings related to irssi
+ XTerm*eightBitInput:   false
+ XTerm*metaSendsEscape: true
+
