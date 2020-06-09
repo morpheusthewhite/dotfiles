@@ -54,7 +54,12 @@ set textwidth=79
 set expandtab
 set autoindent
 set fileformat=unix
+set incsearch
 
+" turn relative line numbers on
+set relativenumber
+" mapping toggle
+map <Leader>r :set relativenumber!<CR>
 
 Plugin 'vim-scripts/indentpython.vim'
 
