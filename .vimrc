@@ -57,9 +57,9 @@ set fileformat=unix
 set incsearch
 
 " turn relative line numbers on
-set relativenumber
+set number relativenumber
 " mapping toggle
-map <Leader>r :set relativenumber!<CR>
+map <Leader>r :set number! relativenumber!<CR>
 
 Plugin 'vim-scripts/indentpython.vim'
 
@@ -162,3 +162,6 @@ set formatoptions-=tc
 
 " git integration
 Plugin 'airblade/vim-gitgutter'
+
+" funny stuff 
+Plugin 'ThePrimeagen/vim-be-good'
