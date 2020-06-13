@@ -1,0 +1,39 @@
+#
+# ~/.zsh_profile
+#
+
+# CUDA set up
+export CUDA_PATH="/opt/cuda-10.0"
+
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$CUDA_PATH/lib64:$CUDA_PATH/lib"
+export PATH="$PATH:$CUDA_PATH/bin:$CUDA_PATH/NsightCompute-1.0"
+
+# gem set up
+export PATH="$PATH:/home/francesco/.gem/ruby/2.6.0/bin"
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+#alias oracledb-start='docker run -d -p 49160:22 -p 49161:1521 wnameless/oracle-xe-11g'
+
+alias enable_fn='echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode > /dev/null'
+alias mktestenv='cd $(mktemp -d)'
+
+# ssh to WEEEOpen lab Raspberry
+alias sshpirla="ssh alarm@lab.weeeopen.it -p 2269"
+# local when /inlab
+alias sshpirlal="ssh alarm@pi-rla.lab.weeeopen.it"
+
+alias z="vim ~/.zsh_profile"
+
+alias diff="diff --color"
+alias docker-start-uml="docker run -d -p 8080:8080 plantuml/plantuml-server:jetty"
+
+alias ddd161="ddd --debugger mips-harvard-os161-gdb kernel"
+
+alias xcolors='msgcat --color=test'
+
+alias h="history | grep"
+alias p="ps aux | grep"
+
+alias vim="nvim"
