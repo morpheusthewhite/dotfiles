@@ -36,7 +36,7 @@ alias h="history | grep"
 alias p="ps aux | grep"
 
 alias xt="tar xfv"
-alias xz="unzip"
+alias xzp="unzip"
 
 alias vim="nvim"
 
