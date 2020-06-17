@@ -24,8 +24,6 @@ alias sshpirla="ssh alarm@lab.weeeopen.it -p 2269"
 # local when /inlab
 alias sshpirlal="ssh alarm@pi-rla.lab.weeeopen.it"
 
-alias z="vim ~/.zsh_profile"
-
 alias diff="diff --color"
 alias docker-start-uml="docker run -d -p 8080:8080 plantuml/plantuml-server:jetty"
 
@@ -33,7 +31,12 @@ alias ddd161="ddd --debugger mips-harvard-os161-gdb kernel"
 
 alias xcolors='msgcat --color=test'
 
+alias z="vim ~/.zsh_profile"
 alias h="history | grep"
 alias p="ps aux | grep"
 
+alias xt="tar xfv"
+alias xz="unzip"
+
 alias vim="nvim"
+

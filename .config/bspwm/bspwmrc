@@ -60,7 +60,7 @@ setup_workspaces_monitor_polybar
 /usr/lib/pam_kwallet_init &
 sxhkd &
 picom &
-wal -i /home/francesco/Pictures/astronaut.jpg --backend wal --saturate 1.0
+wal -i /home/francesco/Pictures/Wallpapers/dragon_got.jpg --backend colorz --saturate 1.0
 setxkbmap -layout it -variant us &
 dunst &
 ~/.config/polybar/launch.sh &
