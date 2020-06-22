@@ -1,6 +1,7 @@
 set nocompatible              " required
+set smartcase
 filetype off                  " required
-    	
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -171,4 +172,7 @@ Plugin 'ThePrimeagen/vim-be-good'
 set rtp+=~/.fzf
 Plugin 'junegunn/fzf.vim'
 
+" fzf related shortcuts (credits theprimeagen)
+nnoremap <Leader>pf :Files<CR>
+nnoremap <leader>pw :Rg <C-R>=expand("<cword>")<CR><CR>
 
