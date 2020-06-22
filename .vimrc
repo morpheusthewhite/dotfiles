@@ -55,6 +55,7 @@ set expandtab
 set autoindent
 set fileformat=unix
 set incsearch
+set smartcase
 
 " turn relative line numbers on
 set number relativenumber
@@ -88,8 +89,8 @@ Plugin 'nvie/vim-flake8'
 Plugin 'dylanaraps/wal.vim'
 colorscheme wal
 
-" Plugin 'dracula/vim', { 'name': 'dracula' }
-" colorscheme dracula
+"Plugin 'dracula/vim', { 'name': 'dracula' }
+"colorscheme dracula
 
 " Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
@@ -165,3 +166,9 @@ Plugin 'airblade/vim-gitgutter'
 
 " funny stuff 
 Plugin 'ThePrimeagen/vim-be-good'
+
+" fzf for file search
+set rtp+=~/.fzf
+Plugin 'junegunn/fzf.vim'
+
+
