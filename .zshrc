@@ -118,7 +118,11 @@ alias xo="xdg-open"
 
 #autoload -U compinit && compinit -u
 
+# global (valid for all machines) aliases
 source ~/.zsh_profile
+
+# local (to a specific machine) aliases
+source ~/.zprofile
 
 # # >>> conda initialize >>>
 # # !! Contents within this block are managed by 'conda init' !!
