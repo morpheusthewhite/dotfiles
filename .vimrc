@@ -86,9 +86,15 @@ syntax on
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 
+" Always transparent background
+hi Normal guibg=NONE ctermbg=NONE
+
 " Plugin 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
 Plugin 'dylanaraps/wal.vim'
 colorscheme wal
+
+"Plugin 'deviantfero/wpgtk.vim'
+"colorscheme wpgtkAlt
 
 "Plugin 'dracula/vim', { 'name': 'dracula' }
 "colorscheme dracula
