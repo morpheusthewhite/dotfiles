@@ -171,9 +171,6 @@ set formatoptions-=tc
 " git integration
 Plugin 'airblade/vim-gitgutter'
 
-" funny stuff 
-Plugin 'ThePrimeagen/vim-be-good'
-
 " fzf for file search
 set rtp+=~/.fzf
 Plugin 'junegunn/fzf.vim'
