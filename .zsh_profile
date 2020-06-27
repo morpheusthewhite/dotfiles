@@ -17,7 +17,6 @@ export EDITOR="$VISUAL"
 #alias oracledb-start='docker run -d -p 49160:22 -p 49161:1521 wnameless/oracle-xe-11g'
 
 alias enable_fn='echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode > /dev/null'
-alias mktestenv='cd $(mktemp -d)'
 
 # ssh to WEEEOpen lab Raspberry
 alias sshpirla="ssh alarm@lab.weeeopen.it -p 2269"
@@ -39,4 +38,18 @@ alias xt="tar xfv"
 alias xzp="unzip"
 
 alias vim="nvim"
+
+# functions and other funny things
+
+mktestenv(){
+    temp_dir=$(mktemp -d)
+    
+    until [ -z "$1" ]
+    do
+        cp "$1" "${temp_dir}"
+        shift
+    done
+    
+    cd "${temp_dir}"
+}
 
