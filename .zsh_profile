@@ -41,7 +41,8 @@ alias vim="nvim"
 
 # functions and other funny things
 
-# 
+#
+# mktestenv(ironment)
 # create a temporary folder and copy all passed argument to it
 #
 mktestenv(){
@@ -56,3 +57,26 @@ mktestenv(){
     cd "${temp_dir}"
 }
 
+# 
+# cdd(eeper) 
+# if the passed directory contains only one folder, cdd to it
+#
+cdd(){
+    cd "$1"
+
+    # execute this part only if the cd command succedeed
+    if [[ $? -eq 0 ]]
+    then
+        # select folders in the current directory
+        folders=$(ls -l | grep "^d")
+
+        # act only if there is one directory
+        if [ ! -z "${folders}" -a $(echo $folders | wc -l) -eq 1 ] 
+        then
+            # recursive call
+            folder=$(echo $folders | awk '{ print $NF }')
+            cdd "${folder}"
+        fi
+    fi
+
+}
