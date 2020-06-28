@@ -41,6 +41,9 @@ alias vim="nvim"
 
 # functions and other funny things
 
+# 
+# create a temporary folder and copy all passed argument to it
+#
 mktestenv(){
     temp_dir=$(mktemp -d)
     
