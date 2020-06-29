@@ -38,6 +38,7 @@ alias xt="tar xfv"
 alias xzp="unzip"
 
 alias vim="nvim"
+alias v="nvim"
 
 # functions and other funny things
 
