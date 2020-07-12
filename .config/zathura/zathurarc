@@ -1,4 +1,6 @@
-
+# custom key bindings
+map l navigate next
+map h navigate previous
 
 set default-bg                  "#1C2023"
 set default-fg                  "#393F45"
