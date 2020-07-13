@@ -35,8 +35,8 @@ URxvt*background: Black
 !
 ! Xft: DejaVu fonts
 !  Fedora/debian packages: dejavu-sans-mono-fonts/ttf-dejavu 
-URxvt*font: xft:Consolas for Powerline:pixelsize=12:antialias=true:hinting=true
-URxvt*boldFont: xft:Consolas for Powerline:bold:pixelsize=12:antialias=true:hinting=true
+URxvt*font: xft:Consolas for Powerline:pixelsize=12.5:antialias=true:hinting=true
+URxvt*boldFont: xft:Consolas for Powerline:bold:pixelsize=12.5:antialias=true:hinting=true
 !
 ! Xft: Liberation fonts
 !  Fedora/debian packages: liberation-mono-fonts/ttf-liberation
@@ -104,15 +104,22 @@ URxvt.clipboard.autocopy: true
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
+! settings related to irssi
+!XTerm*eightBitInput:   false
+!XTerm*metaSendsEscape: true
+
 ! Some perl externsions
 ! URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
-! URxvt.url-select.launcher:  chromium
 ! URxvt.url-select.underline: true
 ! URxvt.keysym.M-u:           perl:url-select:select_next
 ! URxvt.keysym.M-Escape:      perl:keyboard-select:activate
 ! URxvt.keysym.M-s:           perl:keyboard-select:search
 
-! settings related to irssi
- XTerm*eightBitInput:   false
- XTerm*metaSendsEscape: true
+URxvt.perl-ext-common:      default,keyboard-select
+URxvt.perl-lib: /usr/lib/urxvt/perl/
+
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+! copy to clipboard too
+URxvt.keyboard-select.clipboard: true
 
