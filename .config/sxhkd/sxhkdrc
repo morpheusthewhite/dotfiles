@@ -83,9 +83,13 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# focus the given desktop
+super + {1-9,0}
+	bspc desktop -f '^{1-9,10}'
+
+# send the node to the given desktop and focus it
+super + shift + {1-9,0}
+    id=$(bspc query -N -n); bspc node -d ^{1-9}; bspc node -f ${id}
 
 #
 # preselect
@@ -139,11 +143,9 @@ XF86MonBrightnessDown
 	xbacklight -dec 4
 
 # volume control
+# for some strange reason these shortcuts work only if sxhkd is restarted
 XF86Audio{Raise,Lower}Volume
 	pulsemixer --change-volume {+,-}5
-
-# XF86AudioLowerVolume 
-# 	pulsemixer --change-volume -5
 
 XF86AudioMute 
 	pulsemixer --toggle-mute
