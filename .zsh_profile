@@ -11,7 +11,7 @@ export PATH="$PATH:$CUDA_PATH/bin:$CUDA_PATH/NsightCompute-1.0"
 # gem set up
 export PATH="$PATH:/home/francesco/.gem/ruby/2.6.0/bin"
 
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 #alias oracledb-start='docker run -d -p 49160:22 -p 49161:1521 wnameless/oracle-xe-11g'
