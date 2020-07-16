@@ -74,6 +74,9 @@ plugins=(
 # ZSH_TMUX_AUTOQUIT=true
 source $ZSH/oh-my-zsh.sh
 
+# vimify all
+bindkey -v
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
