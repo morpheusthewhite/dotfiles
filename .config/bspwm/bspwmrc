@@ -7,13 +7,17 @@
 # handle setup of workspace (both in case of single and double monitor)
 function setup_workspaces_monitor_polybar(){
 	other_monitor=$(xrandr -q | awk -v primary_monitor="$primary_monitor" '{if($2=="connected" && $1!=primary_monitor) {print $1}}' )
-	#polybar example &
 
-    # TODO handle primary_resolution
+    if [ ! -z "${primary_resolution}"  ]; then
+        # this needs to be an array to be correctly parsed by the command
+        primary_monitor_mode=( --mode "${primary_resolution}" )
+    fi
 
 	if [ -z "${other_monitor}" -o "$disable_dual" == "true" ] 
     then
 		echo "Single monitor"
+
+        xrandr --output "${primary_monitor}" --primary "${primary_monitor_mode[@]}"
 		bspc monitor -d I II III IV V VI VII VIII IX 
 	else
 		echo "Double monitor"
@@ -25,12 +29,12 @@ function setup_workspaces_monitor_polybar(){
 
         if [ "$secondary_right" == "false" ]
             then
-		    xrandr --output "${primary_monitor}" --primary --output "${other_monitor}" "${other_monitor_mode[@]}" --left-of "${primary_monitor}"
+		    xrandr --output "${primary_monitor}" --primary "${primary_monitor_mode[@]}" --output "${other_monitor}" "${other_monitor_mode[@]}" --left-of "${primary_monitor}"
 
             # needed when the second monitor is on the left
             bspc monitor "${other_monitor}" -s "${primary_monitor}"
         else 
-		    xrandr --output "${primary_monitor}" --primary --output "${other_monitor}" "${other_monitor_mode[@]}" --right-of "${primary_monitor}"
+		    xrandr --output "${primary_monitor}" --primary "${primary_monitor_mode[@]}" --output "${other_monitor}" "${other_monitor_mode[@]}" --right-of "${primary_monitor}"
         fi
 
         bspc monitor "${primary_monitor}" -d I II III IV V
