@@ -6,8 +6,10 @@
 
 # handle setup of workspace (both in case of single and double monitor)
 function setup_workspaces_monitor_polybar(){
-	other_monitor=$(xrandr -q | awk '{if($2=="connected" && $1!="eDP1") {print $1}}')
+	other_monitor=$(xrandr -q | awk -v primary_monitor="$primary_monitor" '{if($2=="connected" && $1!=primary_monitor) {print $1}}' )
 	#polybar example &
+
+    # TODO handle primary_resolution
 
 	if [ -z "${other_monitor}" -o "$disable_dual" == "true" ] 
     then
@@ -16,11 +18,12 @@ function setup_workspaces_monitor_polybar(){
 	else
 		echo "Double monitor"
 
-        if [ ! -z "${external_resolution}"  ]; then
-            other_monitor_mode=( --mode "${external_resolution}" )
+        if [ ! -z "${secondary_resolution}"  ]; then
+            # this needs to be an array to be correctly parsed by the command
+            other_monitor_mode=( --mode "${secondary_resolution}" )
         fi
 
-        if [ "$monitor_right" == "false"  ]
+        if [ "$secondary_right" == "false" ]
             then
 		    xrandr --output "${primary_monitor}" --primary --output "${other_monitor}" "${other_monitor_mode[@]}" --left-of "${primary_monitor}"
 
