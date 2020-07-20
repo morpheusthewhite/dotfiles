@@ -35,8 +35,8 @@ URxvt*background: Black
 !
 ! Xft: DejaVu fonts
 !  Fedora/debian packages: dejavu-sans-mono-fonts/ttf-dejavu 
-URxvt*font: xft:Consolas for Powerline:pixelsize=12.5:antialias=true:hinting=true
-URxvt*boldFont: xft:Consolas for Powerline:bold:pixelsize=12.5:antialias=true:hinting=true
+!URxvt*font: xft:Consolas for Powerline:pixelsize=12.5:antialias=true:hinting=true
+!URxvt*boldFont: xft:Consolas for Powerline:bold:pixelsize=12.5:antialias=true:hinting=true
 !
 ! Xft: Liberation fonts
 !  Fedora/debian packages: liberation-mono-fonts/ttf-liberation
@@ -45,8 +45,8 @@ URxvt*boldFont: xft:Consolas for Powerline:bold:pixelsize=12.5:antialias=true:hi
 !
 ! Xft: Terminus fonts
 !  Fedora/debian packages: terminus-fonts/xfonts-terminus
-!URxvt*font: xft:terminus:pixelsize=15
-!URxvt*boldFont: xft:terminus:bold:pixelsize=15
+URxvt*font: xft:xos4 terminus:pixelsize=15:antialias=true
+URxvt*boldFont: xft:xos4 terminus:bold:pixelsize=15:antialias=true
 
 ! Traditional fonts - a more traditional font setup in lieu of xft
 !URxvt*font:-*-courier-medium-r-normal-*-14-*-*-*-*-*-iso8859-1
