@@ -42,7 +42,7 @@ Plug 'dylanaraps/wal.vim'
 " Plug 'morhetz/gruvbox'
 
 " syntax highlighting
-" Plug 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic'
 " Plug 'nvie/vim-flake8'
 
 " Enable smart folding
@@ -201,4 +201,12 @@ nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 " launch the extension on an empty file
 let g:vim_be_good_floating = 0
 
+" syntax check
+" set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
