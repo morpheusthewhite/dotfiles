@@ -39,7 +39,7 @@ Plug 'lervag/vimtex'
 Plug 'dylanaraps/wal.vim'
 " Plug 'deviantfero/wpgtk.vim'
 " Plug 'dracula/vim', { 'name': 'dracula' }
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 
 " syntax highlighting
 Plug 'neomake/neomake'
@@ -128,9 +128,10 @@ syntax on
 hi Normal guibg=NONE ctermbg=NONE
 
 " colorscheme choice
-colorscheme wal
-"autocmd vimenter * colorscheme gruvbox
-"colorscheme gruvbox
+"colorscheme wal
+let g:gruvbox_italic=1
+let g:gruvbox_termcolors=16
+autocmd vimenter * colorscheme gruvbox
 "colorscheme wpgtkAlt
 "colorscheme dracula
 
