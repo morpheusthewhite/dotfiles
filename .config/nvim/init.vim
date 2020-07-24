@@ -42,8 +42,9 @@ Plug 'dylanaraps/wal.vim'
 " Plug 'morhetz/gruvbox'
 
 " syntax highlighting
-Plug 'vim-syntastic/syntastic'
-" Plug 'nvie/vim-flake8'
+Plug 'neomake/neomake'
+"Plug 'vim-syntastic/syntastic'
+"Plug 'nvie/vim-flake8'
 
 " Enable smart folding
 Plug 'tmhedberg/SimpylFold'
@@ -201,12 +202,6 @@ nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 " launch the extension on an empty file
 let g:vim_be_good_floating = 0
 
-" syntax check
-" set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
+" Full config for syntax check: when writing or reading a buffer, and on changes in insert and
+" normal mode (after 500ms; no delay when writing).
+call neomake#configure#automake('nrwi', 500)
