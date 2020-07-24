@@ -91,6 +91,8 @@ set autoindent
 set fileformat=unix
 set incsearch
 set smartcase
+" open a new window at the bottom
+set splitbelow
 
 " turn relative line numbers on
 set number relativenumber
