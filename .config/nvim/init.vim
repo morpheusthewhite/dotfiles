@@ -140,16 +140,6 @@ autocmd vimenter * colorscheme gruvbox
 "colorscheme wpgtkAlt
 "colorscheme dracula
 
-" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
-" various settings for powerline
-" set rtp+=$HOME/.local/lib/python3.5/site-packages/powerline/bindings/vim/                                                                                 
-" set laststatus=2
-" set t_Co=256
-
-" set nu
-" hi Normal guibg=NONE ctermbg=NONE
-
 " ----------
 " latex setup
 " ----------
@@ -164,9 +154,9 @@ let g:UltiSnipsExpandTrigger = "<C-l>"
 let g:UltiSnipsJumpForwardTrigger = "<C-l>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-h>"
 
-" let g:UltiSnipsExpandTrigger = '<tab>'
-" let g:UltiSnipsJumpForwardTrigger = '<tab>'
-" let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+"let g:UltiSnipsExpandTrigger = '<tab>'
+"let g:UltiSnipsJumpForwardTrigger = '<tab>'
+"let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 function! Synctex()
 	" remove 'silent' for debugging
