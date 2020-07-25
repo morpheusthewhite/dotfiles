@@ -129,8 +129,13 @@ hi Normal guibg=NONE ctermbg=NONE
 
 " colorscheme choice
 "colorscheme wal
+
+" enable 256 colors support directly in vim
+set termguicolors
+
+let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_italic=1
-let g:gruvbox_termcolors=16
+let g:gruvbox_invert_selection='0'
 autocmd vimenter * colorscheme gruvbox
 "colorscheme wpgtkAlt
 "colorscheme dracula
