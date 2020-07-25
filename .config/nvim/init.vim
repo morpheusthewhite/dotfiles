@@ -117,7 +117,8 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " trigger semantic completion after 2 chars have been written
 let g:ycm_semantic_triggers = {
-    \   'python': [ 're!\w{3}' ]
+    \   'python': [ 're!\w{3}' ],
+    \   'rust': [ 're!\w{3}' ]
     \ }
 
 
