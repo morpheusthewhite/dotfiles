@@ -65,7 +65,7 @@ ZSH_THEME="darkblood"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git autojump archlinux colored-man-pages 
+  git autojump archlinux colored-man-pages vi-mode
 )
 
 # automatically starts tmux
@@ -75,7 +75,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # vimify all
-bindkey -v
+#bindkey -v
 
 # User configuration
 
@@ -105,11 +105,6 @@ bindkey -v
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias load_arduino="echo avrdude -p m2560 -P /dev/ttyACM0 -c -b 115200 -D -q -V -C /usr/share/arduino/hardware/tools/avr/../avrdude.conf -c wiring -U flash:w:filename.hex:i"
-alias scl="scalac *.scala"
-alias xo="xdg-open"
-
-. /opt/miniconda3/etc/profile.d/conda.sh 2> /dev/null
 
 #source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
