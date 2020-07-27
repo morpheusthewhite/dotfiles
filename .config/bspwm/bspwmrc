@@ -74,6 +74,7 @@ dunst &
 ~/.config/polybar/launch.sh &
 # source "/home/francesco/.cache/wal/colors.sh"
 wmname LG3D &
+pgrep bspswallow || "$HOME"/.config/bspwm/scripts/bspswallow & # window swallowing
 
 fetch_colors
 
@@ -106,4 +107,3 @@ bspc rule -a "Mailspring" desktop='^4' follow=on
 bspc rule -a "Slack" desktop='^4' follow=on
 bspc rule -a "Spotify" desktop='^3' follow=on
 bspc rule -a Zathura state=fullscreen
-
