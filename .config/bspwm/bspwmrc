@@ -67,7 +67,7 @@ setup_workspaces_monitor_polybar
 /usr/lib/pam_kwallet_init &
 sxhkd &
 picom &
-wal -i /home/francesco/Pictures/Wallpapers/retrogame.png --backend colorz --saturate 1.0
+feh --bg-scale /home/francesco/Pictures/Wallpapers/retrogame.png
 wal --theme base16-gruvbox-hard
 setxkbmap -layout it -variant us &
 dunst &
