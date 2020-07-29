@@ -65,7 +65,7 @@ ZSH_THEME="darkblood"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git autojump archlinux colored-man-pages vi-mode
+  git autojump archlinux colored-man-pages vi-mode 
 )
 
 # automatically starts tmux
@@ -148,4 +148,10 @@ insert_sudo() { zle beginning-of-line; zle -U "sudo "; }
 zle -N insert_sudo insert_sudo
 
 bindkey '^A' insert_sudo
+
+# fix smart history navigation which gets broken with vi-mode plugin
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
 
