@@ -135,6 +135,10 @@ super + {Left,Down,Up,Right}
 super + c
 	firefox
 
+# launch firefox (private session)
+super + shift + c
+	firefox --private-window
+
 # brightness control
 XF86MonBrightnessUp
 	xbacklight -inc 4
