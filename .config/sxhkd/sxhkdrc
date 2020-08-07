@@ -136,7 +136,7 @@ super + c
 	firefox
 
 # launch firefox (private session)
-super + shift + c
+super + alt + c
 	firefox --private-window
 
 # brightness control
