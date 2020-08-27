@@ -149,10 +149,10 @@ XF86MonBrightnessDown
 # volume control
 # for some strange reason these shortcuts work only if sxhkd is restarted
 XF86Audio{Raise,Lower}Volume
-	pulsemixer --change-volume {+,-}5
+	amixer set Master 5%{+,-}
 
 XF86AudioMute 
-	pulsemixer --toggle-mute
+	amixer sset Master toggle
 
 # screenshots
 Print
