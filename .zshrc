@@ -117,10 +117,10 @@ source $ZSH/oh-my-zsh.sh
 #autoload -U compinit && compinit -u
 
 # global (valid for all machines) aliases
-source ~/.zsh_profile
+source ~/.zprofile
 
 # local (to a specific machine) aliases
-source ~/.zprofile
+source ~/.zprofile.local
 
 # # >>> conda initialize >>>
 # # !! Contents within this block are managed by 'conda init' !!
