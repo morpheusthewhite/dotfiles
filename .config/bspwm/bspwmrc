@@ -67,7 +67,7 @@ setup_workspaces_monitor_polybar
 /usr/lib/pam_kwallet_init &
 sxhkd &
 picom &
-feh --bg-scale /home/francesco/Pictures/Wallpapers/retrogame.png
+feh --bg-max /home/francesco/Pictures/Wallpapers/space_pixel.jpg
 wal --theme base16-gruvbox-hard
 setxkbmap -layout it -variant us &
 dunst &
@@ -76,6 +76,7 @@ dunst &
 wmname LG3D &
 pgrep bspswallow || "$HOME"/.config/bspwm/scripts/bspswallow & # window swallowing
 
+enable_fn
 fetch_colors
 
 #bspc config normal_border_color "$BLACK"
