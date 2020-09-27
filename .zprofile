@@ -31,6 +31,8 @@ alias xo="xdg-open"
 alias vim="nvim"
 alias v="nvim"
 
+alias bat="bat --plain"
+
 # functions and other funny things
 
 #
