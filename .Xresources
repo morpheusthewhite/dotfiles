@@ -22,6 +22,11 @@ URxvt*foreground: White
 ! background color (prior to tinting) (default is white)
 URxvt*background: Black
 
+! stop urxvt autoscroll when going back in terminal
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:    true
+
 ! Xft (X FreeType) with Bitstream, DejaVu, Liberation, or Terminus fonts:
 !  Fedora/debian packages: libXft/libxft2 
 !  An anti-aliased font setup with Xft looks fantastic; it can be a bit choppy 
