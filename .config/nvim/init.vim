@@ -218,3 +218,6 @@ let g:NERDCommentEmptyLines = 1
 
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+" greatest remap ever, thanks @primagen
+vnoremap <leader>p "_dP
