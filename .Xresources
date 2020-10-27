@@ -50,8 +50,8 @@ URxvt*scrollTtyKeypress:    true
 !
 ! Xft: Terminus fonts
 !  Fedora/debian packages: terminus-fonts/xfonts-terminus
-URxvt*font: xft:Terminus:pixelsize=15:antialias=true
-URxvt*boldFont: xft:Terminus:bold:pixelsize=15:antialias=true
+URxvt*font: xft:TerminessTTF Nerd Font Mono:pixelsize=15:antialias=true
+URxvt*boldFont: xft:TerminessTTF Nerd Font Mono:bold:pixelsize=15:antialias=true
 
 ! Traditional fonts - a more traditional font setup in lieu of xft
 !URxvt*font:-*-courier-medium-r-normal-*-14-*-*-*-*-*-iso8859-1
