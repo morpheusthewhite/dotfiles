@@ -58,6 +58,11 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 
+" csv viewer
+Plug 'chrisbra/csv.vim'
+
+" I hate matlab IDE
+Plug 'daeyun/vim-matlab'
 call plug#end()
 
 "split navigations
