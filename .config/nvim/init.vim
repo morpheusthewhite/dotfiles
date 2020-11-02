@@ -123,7 +123,8 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " trigger semantic completion after 2 chars have been written
 let g:ycm_semantic_triggers = {
     \   'python': [ 're!\w{3}' ],
-    \   'rust': [ 're!\w{3}' ]
+    \   'rust': [ 're!\w{3}' ],
+    \   'latex': [ 're!\w{3}' ]
     \ }
 
 
@@ -154,6 +155,11 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
+
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<C-l>"
@@ -199,6 +205,9 @@ nnoremap <leader>pw :Rg <C-R>=expand("<cword>")<CR><CR>
 nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+" make terminal mode Esc key great again
+tnoremap <Esc> <C-\><C-n>
 
 " fix line numbering
 " launch the extension on an empty file
