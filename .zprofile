@@ -7,11 +7,6 @@ export EDITOR="$VISUAL"
 
 alias enable_fn='echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode > /dev/null'
 
-# ssh to WEEEOpen lab Raspberry
-alias sshpirla="ssh alarm@lab.weeeopen.it -p 2269"
-# local when /inlab
-alias sshpirlal="ssh alarm@pi-rla.lab.weeeopen.it"
-
 alias diff="diff --color"
 alias docker-start-uml="docker run -d -p 8080:8080 plantuml/plantuml-server:jetty"
 
@@ -87,3 +82,6 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 alias ls="exa"
 alias l="exa -al"
+
+# fix colors in gruvbox-hard for .pdf files
+export EXA_COLORS="*.pdf=0;36"
