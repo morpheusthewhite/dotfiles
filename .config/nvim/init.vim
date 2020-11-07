@@ -2,7 +2,9 @@ set nocompatible              " required
 set smartcase
 filetype off                  " required
 
-call plug#begin('~/.vim/plugged') " fzf for file search
+call plug#begin('~/.vim/plugged') 
+
+" fzf for file search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -100,7 +102,8 @@ set splitbelow
 
 " turn relative line numbers on
 set number relativenumber
-" mapping toggle map <Leader>r :set number! relativenumber!<CR>
+" mapping toggle 
+map <Leader>r :set number! relativenumber!<CR>
 
 " highlight BadWhitespace ctermfg=16 ctermbg=253 guifg=#000000 guibg=#F8F8F0
 " au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
@@ -198,7 +201,8 @@ nnoremap <Leader>pf :Files<CR>
 nnoremap <leader>pw :Rg <C-R>=expand("<cword>")<CR><CR>
 
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
-" https://vim.fandom.com/wiki/Quickly_adding_and_deleting_empty_linesnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+" https://vim.fandom.com/wiki/Quickly_adding_and_deleting_empty_lines
+nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
