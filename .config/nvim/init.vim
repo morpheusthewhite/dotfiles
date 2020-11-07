@@ -2,9 +2,7 @@ set nocompatible              " required
 set smartcase
 filetype off                  " required
 
-call plug#begin('~/.vim/plugged')
-
-" fzf for file search
+call plug#begin('~/.vim/plugged') " fzf for file search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -73,7 +71,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " Enable folding
 set foldmethod=indent
-set foldlevel=99
+set foldlevel=3
 
 " Enable folding with the spacebar
 nnoremap <space> za
@@ -102,8 +100,7 @@ set splitbelow
 
 " turn relative line numbers on
 set number relativenumber
-" mapping toggle
-map <Leader>r :set number! relativenumber!<CR>
+" mapping toggle map <Leader>r :set number! relativenumber!<CR>
 
 " highlight BadWhitespace ctermfg=16 ctermbg=253 guifg=#000000 guibg=#F8F8F0
 " au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
@@ -235,3 +232,12 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " greatest remap ever, thanks @primagen
 vnoremap <leader>p "_dP
+
+" from vim-sensible 
+" https://github.com/tpope/vim-sensible/blob/master/plugin/sensible.vim
+
+" Use <C-L> to clear the highlighting of :set hlsearch.
+nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+
+set scrolloff=1
+set sidescrolloff=2
