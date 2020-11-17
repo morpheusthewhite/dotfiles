@@ -16,7 +16,7 @@ alias xcolors='msgcat --color=test'
 
 alias z="vim ~/.zsh_profile"
 alias h="history | grep"
-alias p="ps aux | grep | head -1"
+alias p="ps aux | grep"
 
 alias xt="tar xfv"
 alias xzp="unzip"
