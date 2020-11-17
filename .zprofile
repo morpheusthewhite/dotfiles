@@ -84,4 +84,4 @@ alias ls="exa"
 alias l="exa -al"
 
 # fix colors in gruvbox-hard for .pdf files
-export EXA_COLORS="*.pdf=0;36"
+export EXA_COLORS="*.pdf=0;36:*.odt=0;36"
