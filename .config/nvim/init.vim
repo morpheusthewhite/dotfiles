@@ -63,6 +63,10 @@ Plug 'chrisbra/csv.vim'
 
 " I hate matlab IDE
 Plug 'daeyun/vim-matlab'
+
+" line object
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
 call plug#end()
 
 "split navigations
@@ -194,7 +198,7 @@ map <C-a> :AutoSaveToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 " avoid auto insert of newlines
-set formatoptions-=tc
+set formatoptions-=c
 
 " fzf related shortcuts (credits theprimeagen)
 nnoremap <Leader>pf :Files<CR>
@@ -240,8 +244,11 @@ vnoremap <leader>p "_dP
 " from vim-sensible 
 " https://github.com/tpope/vim-sensible/blob/master/plugin/sensible.vim
 
-" Use <C-L> to clear the highlighting of :set hlsearch.
-nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+" Use <C-S> to clear the highlighting of :set hlsearch.
+nnoremap <silent> <C-S> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 set scrolloff=1
 set sidescrolloff=2
+
+" invoke automatic formatting from vim-autoformat
+noremap <F3> :Autoformat<CR>
