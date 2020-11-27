@@ -70,6 +70,19 @@ cdd(){
 
 }
 
+#
+# addp(ath)
+# add the following element to one folder in the path, specifically to
+# $HOME/.local/bin 
+# Make sure that this location is in your path
+#
+ADDPATH_FOLDER="$HOME/.local/bin"
+addp(){
+    executable=$(realpath "$1")
+    link_name=$(basename "$1")
+    ln -s ${executable} "$ADDPATH_FOLDER/$link_name"
+}
+
 # beautify less
 export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
