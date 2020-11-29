@@ -64,9 +64,15 @@ Plug 'chrisbra/csv.vim'
 " I hate matlab IDE
 Plug 'daeyun/vim-matlab'
 
+" proper indentation
+Plug 'Chiel92/vim-autoformat'
+
 " line object
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
+
+" surround everything
+Plug 'tpope/vim-surround'
 call plug#end()
 
 "split navigations
