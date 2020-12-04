@@ -75,11 +75,16 @@ cdd(){
 # add the following element to one folder in the path, specifically to
 # $HOME/.local/bin 
 # Make sure that this location is in your path
+# You can pass the name of the link as second argument
 #
 ADDPATH_FOLDER="$HOME/.local/bin"
 addp(){
     executable=$(realpath "$1")
-    link_name=$(basename "$1")
+    if [[ ! -z "$2" ]]; then
+        link_name="$2"
+    else
+        link_name=$(basename "$1")
+    fi
     ln -s ${executable} "$ADDPATH_FOLDER/$link_name"
 }
 
