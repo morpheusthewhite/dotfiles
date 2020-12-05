@@ -265,3 +265,6 @@ noremap <F3> :Autoformat<CR>
 
 " run current file with python
 nnoremap <Leader>r :! python <C-R>%<CR>
+
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
