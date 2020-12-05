@@ -46,8 +46,8 @@ Plug 'neomake/neomake'
 "Plug 'vim-syntastic/syntastic'
 "Plug 'nvie/vim-flake8'
 
-" Enable smart folding
-Plug 'tmhedberg/SimpylFold'
+" Enable smart folding for Python
+" Plug 'tmhedberg/SimpylFold'
 
 " python indenting
 Plug 'vim-scripts/indentpython.vim'
@@ -67,6 +67,9 @@ Plug 'daeyun/vim-matlab'
 " proper indentation
 Plug 'Chiel92/vim-autoformat'
 
+" grammar checks
+Plug 'rhysd/vim-grammarous'
+
 " line object
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
@@ -83,7 +86,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " Enable folding
 set foldmethod=indent
-set foldlevel=3
+set foldlevel=2
 
 " Enable folding with the spacebar
 nnoremap <space> za
@@ -259,3 +262,6 @@ set sidescrolloff=2
 
 " invoke automatic formatting from vim-autoformat
 noremap <F3> :Autoformat<CR>
+
+" run current file with python
+nnoremap <Leader>r :! python <C-R>%<CR>
