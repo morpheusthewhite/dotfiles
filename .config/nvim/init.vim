@@ -116,7 +116,7 @@ set splitbelow
 " turn relative line numbers on
 set number relativenumber
 " mapping toggle 
-map <Leader>r :set number! relativenumber!<CR>
+nnoremap <Leader>r :set number! relativenumber!<CR>
 
 " highlight BadWhitespace ctermfg=16 ctermbg=253 guifg=#000000 guibg=#F8F8F0
 " au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
@@ -126,14 +126,24 @@ set encoding=utf-8
 
 " Autocomplete set up
 
-" YCM stuff
+"
+" YCM options and binding
+"
+
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_key_list_stop_completion = ['<C-y>']
 let g:ycm_key_invoke_completion = '<C-Space>'
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" trigger semantic completion after 2 chars have been written
+nnoremap <Leader>cd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <Leader>cp :YcmCompleter GoToReferences<CR>
+nnoremap <Leader>cf :YcmCompleter FixIt<CR>
+nnoremap <Leader>cr :YcmCompleter RefactorRename<Space> 
+nnoremap <Leader>c= :YcmCompleter Format<CR>
+nnoremap <Leader>cd :YcmCompleter GetDoc<CR>
+nnoremap <Leader>ct :YcmCompleter GoToDefinition<CR>
+
+" trigger semantic completion after 3 chars have been written
 let g:ycm_semantic_triggers = {
     \   'python': [ 're!\w{3}' ],
     \   'rust': [ 're!\w{3}' ],
@@ -189,13 +199,13 @@ function! Synctex()
  	execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
 endfunction
 
-map <C-enter> :call Synctex()<cr>
+nnoremap <C-enter> :call Synctex()<cr>
 
 " autocompile shortcut
 autocmd FileType tex nmap <buffer> <C-T> :!latexmk -pdf %<CR>
 
 
-map <C-a> :AutoSaveToggle<CR>
+nnoremap <C-a> :AutoSaveToggle<CR>
 
 " Markdown preview plugin
 " Plugin 'JamshedVesuna/vim-markdown-preview'
@@ -205,7 +215,7 @@ map <C-a> :AutoSaveToggle<CR>
 
 
 " Nerdtree-tabs setup
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
+nnoremap <Leader>ee <plug>NERDTreeTabsToggle<CR>
 
 " avoid auto insert of newlines
 set formatoptions-=c
@@ -268,3 +278,20 @@ nnoremap <Leader>r :! python <C-R>%<CR>
 
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
+nnoremap <Leader>tt :terminal<CR> 
+
+" Not sure if I want this, since it will not be available in other editors with
+" vim bindings
+" inoremap jk <Esc>
+
+" forget about arrows
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>sw :w<CR>
+
+nnoremap <A-p> gqip
+nnoremap <Backspace> d^
