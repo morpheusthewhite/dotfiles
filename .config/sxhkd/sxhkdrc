@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	urxvt
+	alacritty
 
 # default program launcher
 #super + d
@@ -70,8 +70,8 @@ super + {_,shift + }b
 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
-super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
+# super + bracket{left,right}
+#     bspc desktop -f {prev,next}.local
 
 # focus the next/previous desktop in the current monitor
 super + {p,n}
@@ -172,4 +172,4 @@ super + alt + s
 
 # ranger 
 super + r
-    urxvt -e ranger
+    alacritty -e ranger
