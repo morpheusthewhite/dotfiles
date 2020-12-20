@@ -43,8 +43,8 @@ Plug 'morhetz/gruvbox'
 
 " syntax highlighting
 Plug 'neomake/neomake'
-"Plug 'vim-syntastic/syntastic'
-"Plug 'nvie/vim-flake8'
+" Plug 'vim-syntastic/syntastic'
+" Plug 'nvie/vim-flake8'
 
 " Enable smart folding for Python
 " Plug 'tmhedberg/SimpylFold'
@@ -76,13 +76,10 @@ Plug 'kana/vim-textobj-line'
 
 " surround everything
 Plug 'tpope/vim-surround'
-call plug#end()
 
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" colored matching parentheses
+Plug 'luochen1990/rainbow'
+call plug#end()
 
 " Enable folding
 set foldmethod=indent
@@ -112,11 +109,8 @@ set incsearch
 set smartcase
 " open a new window at the bottom
 set splitbelow
-
 " turn relative line numbers on
 set number relativenumber
-" mapping toggle 
-nnoremap <Leader>r :set number! relativenumber!<CR>
 
 " highlight BadWhitespace ctermfg=16 ctermbg=253 guifg=#000000 guibg=#F8F8F0
 " au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
@@ -167,7 +161,10 @@ let g:gruvbox_termcolors=16
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_italic=1
 let g:gruvbox_invert_selection='0'
-autocmd vimenter * colorscheme gruvbox
+augroup cscheme
+    autocmd!
+    autocmd vimenter * colorscheme gruvbox
+augroup END
 "colorscheme wpgtkAlt
 "colorscheme dracula
 
@@ -183,16 +180,13 @@ let g:tex_conceal='abdmg'
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
-au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<C-l>"
-let g:UltiSnipsJumpForwardTrigger = "<C-l>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-h>"
+augroup tex
+    au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+    " autocompile shortcut
+    " autocmd FileType tex nmap <buffer> <C-T> :!latexmk -pdf %<CR>
+augroup END
 
-"let g:UltiSnipsExpandTrigger = '<tab>'
-"let g:UltiSnipsJumpForwardTrigger = '<tab>'
-"let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 function! Synctex()
 	" remove 'silent' for debugging
@@ -201,9 +195,10 @@ endfunction
 
 nnoremap <C-enter> :call Synctex()<cr>
 
-" autocompile shortcut
-autocmd FileType tex nmap <buffer> <C-T> :!latexmk -pdf %<CR>
-
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<C-l>"
+let g:UltiSnipsJumpForwardTrigger = "<C-l>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-h>"
 
 nnoremap <C-a> :AutoSaveToggle<CR>
 
@@ -242,7 +237,10 @@ let g:vim_be_good_floating = 0
 " normal mode (after 500ms; no delay when writing).
 call neomake#configure#automake('nrwi', 500)
 
-" nerd commenting
+"
+" nerd commenter
+"
+
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
@@ -258,6 +256,7 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
+
 " greatest remap ever, thanks @primagen
 vnoremap <leader>p "_dP
 
@@ -269,6 +268,29 @@ nnoremap <silent> <C-S> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR
 
 set scrolloff=1
 set sidescrolloff=2
+
+" enable rainbox parentheses
+" set to 0 if you want to enable it later via :RainbowToggle
+let g:rainbow_active = 1 
+
+let s:rainbow_conf = {
+\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\	'separately': {
+\		'tex': {
+\			'parentheses_options': 'containedin=texDocZone',
+\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/'],
+\		},
+\		'py': {
+\			'parentheses': ['start=/(/ step=/,/ end=/)/', 'start=/\[/ step=/,/ end=/\]/'],
+\		},
+\   }
+\}
+
+augroup rainbow
+    autocmd!
+    autocmd VimEnter,BufReadPost * :RainbowToggleOn
+augroup END
+
 
 " invoke automatic formatting from vim-autoformat
 noremap <F3> :Autoformat<CR>
@@ -295,3 +317,13 @@ nnoremap <Leader>sw :w<CR>
 
 nnoremap <A-p> gqip
 nnoremap <Backspace> d^
+
+nnoremap <Leader>wh :split 
+nnoremap <Leader>wv :vsplit 
+
+"split navigations
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
+
