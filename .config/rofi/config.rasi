@@ -1,0 +1,14 @@
+/* Dark theme. */
+/* rofi.theme: /usr/share/rofi/themes/DarkBlue.rasi */
+
+/* wal-generated theme. */
+/* rofi.theme: "~/.cache/wal/colors-rofi-dark.rasi"; */
+
+configuration {
+	modi: "run,drun";
+
+    /* gruvbox theme */
+	theme: ".config/rofi/gruvbox-dark-hard.rasi";
+
+    show: "run";
+}
