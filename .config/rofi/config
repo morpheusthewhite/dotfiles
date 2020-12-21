@@ -1,6 +1,10 @@
 # Dark theme.
-#theme: "~/.cache/wal/colors-rofi-dark.rasi";
-theme: "~/.config/rofi/onedark.rasi"
-rofi.theme: /usr/share/rofi/themes/DarkBlue.rasi
+# rofi.theme: /usr/share/rofi/themes/DarkBlue.rasi
+
+# wal-generated theme.
+# rofi.theme: "~/.cache/wal/colors-rofi-dark.rasi";
+
+# gruvbox theme
+rofi.theme: .config/rofi/gruvbox-dark-hard.rasi
 rofi.modi: run,drun
 rofi.show: run
