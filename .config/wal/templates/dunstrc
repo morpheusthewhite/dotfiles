@@ -54,17 +54,17 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 10 
+    padding = 14 
 
     # Horizontal padding.
-    horizontal_padding = 10
+    horizontal_padding = 14
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
     frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#aaaaaa"
+    frame_color = "{foreground}"
 
     # Define a color for the separator.
     # possible values are:
@@ -276,6 +276,7 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "{background}"
+    foreground = "{foreground}"
     foreground = "{color4}"
     timeout = 6
     # Icon for notifications with low urgency, uncomment to enable
@@ -283,6 +284,7 @@
 
 [urgency_normal]
     background = "{background}"
+    foreground = "{foreground}"
     foreground = "{color6}"
     timeout = 6
     # Icon for notifications with normal urgency, uncomment to enable
