@@ -16,6 +16,7 @@ Plug 'tpope/vim-fugitive'
 
 " Status line for vim
 Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 " for comments
 Plug 'scrooloose/nerdcommenter'
@@ -39,7 +40,7 @@ Plug 'lervag/vimtex'
 Plug 'dylanaraps/wal.vim'
 " Plug 'deviantfero/wpgtk.vim'
 " Plug 'dracula/vim', { 'name': 'dracula' }
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 " syntax highlighting
 Plug 'neomake/neomake'
@@ -148,23 +149,30 @@ let g:ycm_semantic_triggers = {
 let python_highlight_all=1
 syntax on
 
+" appearance settings
+
 " Always transparent background
 hi Normal guibg=NONE ctermbg=NONE
 
-" colorscheme choice
-"colorscheme wal
-
 " enable 256 colors support directly in vim
 set termguicolors
-let g:gruvbox_termcolors=16
+" let g:gruvbox_termcolors=16
 
-let g:gruvbox_contrast_dark = 'hard'
+" set status line transparent
+set laststatus=2
+
+let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_italic=1
-let g:gruvbox_invert_selection='0'
+let g:gruvbox_sign_column="bg0"
 augroup cscheme
     autocmd!
     autocmd vimenter * colorscheme gruvbox
 augroup END
+
+" let g:airline_theme='gruvbox'
+
+" colorscheme choice
+"colorscheme wal
 "colorscheme wpgtkAlt
 "colorscheme dracula
 
