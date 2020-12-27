@@ -198,6 +198,7 @@ if !exists('g:ycm_semantic_triggers')
 endif
 
 augroup tex
+    au!
     au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
     " autocompile shortcut
     " autocmd FileType tex nmap <buffer> <C-T> :!latexmk -pdf %<CR>
