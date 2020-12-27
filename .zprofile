@@ -8,7 +8,6 @@ export EDITOR="$VISUAL"
 alias enable_fn='echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode > /dev/null'
 
 alias diff="diff --color"
-alias docker-start-uml="docker run -d -p 8080:8080 plantuml/plantuml-server:jetty"
 
 alias ddd161="ddd --debugger mips-harvard-os161-gdb kernel"
 
@@ -24,9 +23,14 @@ alias xzp="unzip"
 alias xo="xdg-open"
 
 alias vim="nvim"
+alias vi="nvim"
 alias v="nvim"
 
 alias bat="bat --plain"
+
+alias ka="killall"
+alias gcal="gcalcli"
+alias gz="git cz"
 
 # functions and other funny things
 
@@ -101,5 +105,6 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 alias ls="exa"
 alias l="exa -al"
 
-# fix colors in gruvbox-hard for .pdf files
-export EXA_COLORS="*.pdf=0;36:*.odt=0;36"
+# fix colors in gruvbox-hard for .pdf files (needed just for urxvt)
+# export EXA_COLORS="*.pdf=0;36:*.odt=0;36"
+
