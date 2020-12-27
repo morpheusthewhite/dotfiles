@@ -71,15 +71,23 @@ Plug 'Chiel92/vim-autoformat'
 " grammar checks
 Plug 'rhysd/vim-grammarous'
 
-" line object
+" party with vim text object <3
 Plug 'kana/vim-textobj-user'
+" really awesome stuff here
 Plug 'kana/vim-textobj-line'
+Plug 'glts/vim-textobj-comment'
+Plug 'kana/vim-textobj-function'
+Plug 'kana/vim-textobj-indent'
+Plug 'Julian/vim-textobj-variable-segment'
 
 " surround everything
 Plug 'tpope/vim-surround'
 
 " colored matching parentheses
 Plug 'luochen1990/rainbow'
+
+" Markdown preview in Glow. Not working in the 0.4.4. Install the nightly
+" Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'}
 call plug#end()
 
 " Enable folding
