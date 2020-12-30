@@ -6,10 +6,7 @@
 super + Return
 	alacritty
 
-# default program launcher
-#super + d
-	#dmenu_run
-
+# program launcher
 super + d
 	rofi -show-icons -show run
 
@@ -169,6 +166,10 @@ super + alt + t
 # spotify
 super + alt + s
 	spotify
+
+# mail
+super + alt + m
+	mailspring
 
 # ranger 
 super + r
