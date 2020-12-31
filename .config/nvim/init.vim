@@ -127,6 +127,13 @@ set number relativenumber
 " fix encoding
 set encoding=utf-8
 
+" avoid auto insert of newlines for non tex files
+set formatoptions-=tc
+
+" protips
+let mapleader="0"
+" inoremap <Esc> <Nop>
+
 " Autocomplete set up
 
 "
@@ -172,10 +179,7 @@ set laststatus=2
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_italic=1
 let g:gruvbox_sign_column="bg0"
-augroup cscheme
-    autocmd!
-    autocmd vimenter * colorscheme gruvbox
-augroup END
+colorscheme gruvbox
 
 " let g:airline_theme='gruvbox'
 
@@ -200,6 +204,7 @@ endif
 augroup tex
     au!
     au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+    au FileType tex set formatoptions+=t
     " autocompile shortcut
     " autocmd FileType tex nmap <buffer> <C-T> :!latexmk -pdf %<CR>
 augroup END
