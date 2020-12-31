@@ -232,14 +232,11 @@ nnoremap <C-a> :AutoSaveToggle<CR>
 
 
 " Nerdtree-tabs setup
-nnoremap <Leader>ee <plug>NERDTreeTabsToggle<CR>
-
-" avoid auto insert of newlines
-set formatoptions-=c
+nnoremap <Leader>et <plug>NERDTreeTabsToggle<CR>
 
 " fzf related shortcuts (credits theprimeagen)
-nnoremap <Leader>pf :Files<CR>
-nnoremap <leader>pw :Rg <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>ef :Files<CR>
+nnoremap <leader>ew :Rg <C-R>=expand("<cword>")<CR><CR>
 
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 " https://vim.fandom.com/wiki/Quickly_adding_and_deleting_empty_lines
@@ -349,3 +346,22 @@ nnoremap <Leader>wv :vsplit
 " nnoremap <C-L> <C-W><C-L>
 " nnoremap <C-H> <C-W><C-H>
 
+" convenient pasting from primary register
+noremap <C-d> "+d
+noremap <C-y> "+y
+noremap <C-p> "+p
+
+" easier tabulation
+vnoremap t >gv
+vnoremap r <gv
+
+" remove trailing whitespace
+nnoremap <Leader>tr :%s/\s\+$//e<CR>
+
+" nnoremap <Leader>wp :Glow<CR>
+
+" Grammarous bindings and settings
+" let g:grammarous#show_first_error=0
+" let g:grammarous#use_location_list=1
+nnoremap <Leader>gc :GrammarousCheck<CR>
+nnoremap <Leader>gr :GrammarousReset<CR>
