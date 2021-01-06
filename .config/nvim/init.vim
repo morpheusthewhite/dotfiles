@@ -1,6 +1,6 @@
 filetype off                  " required
 
-call plug#begin('~/.vim/plugged') 
+call plug#begin('~/.vim/plugged')
 
 " fzf for file search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -9,7 +9,7 @@ Plug 'junegunn/fzf.vim'
 " git integration
 Plug 'airblade/vim-gitgutter'
 
-" git plugin 
+" git plugin
 Plug 'tpope/vim-fugitive'
 
 " Status line for vim
@@ -135,7 +135,7 @@ set encoding=utf-8
 set formatoptions-=tc
 
 " protips
-let mapleader="0"
+let mapleader="-"
 " inoremap <Esc> <Nop>
 
 " Autocomplete set up
@@ -148,11 +148,12 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_key_list_stop_completion = ['<C-y>']
 let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_confirm_extra_conf = 0
 
 nnoremap <Leader>cd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <Leader>cp :YcmCompleter GoToReferences<CR>
 nnoremap <Leader>cf :YcmCompleter FixIt<CR>
-nnoremap <Leader>cr :YcmCompleter RefactorRename<Space> 
+nnoremap <Leader>cr :YcmCompleter RefactorRename<Space>
 nnoremap <Leader>c= :YcmCompleter Format<CR>
 nnoremap <Leader>cd :YcmCompleter GetDoc<CR>
 nnoremap <Leader>ct :YcmCompleter GoToDefinition<CR>
@@ -235,8 +236,9 @@ nnoremap <C-a> :AutoSaveToggle<CR>
 " let vim_markdown_preview_use_xdg_open=1
 
 
-" Nerdtree-tabs setup
-nnoremap <Leader>et <plug>NERDTreeTabsToggle<CR>
+" Nerdtree(-tabs) setup
+" nnoremap <Leader>et <plug>NERDTreeTabsToggle<CR>
+nnoremap <Leader>et :NERDTreeToggle<CR>
 
 " fzf related shortcuts (credits theprimeagen)
 nnoremap <Leader>ef :Files<CR>
@@ -283,7 +285,7 @@ let g:NERDTrimTrailingWhitespace = 1
 " greatest remap ever, thanks @primagen
 vnoremap <leader>p "_dP
 
-" from vim-sensible 
+" from vim-sensible
 " https://github.com/tpope/vim-sensible/blob/master/plugin/sensible.vim
 
 " Use <C-S> to clear the highlighting of :set hlsearch.
@@ -294,7 +296,7 @@ set sidescrolloff=2
 
 " enable rainbox parentheses
 " set to 0 if you want to enable it later via :RainbowToggle
-let g:rainbow_active = 1 
+let g:rainbow_active = 1
 
 let s:rainbow_conf = {
 \	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
@@ -323,7 +325,9 @@ nnoremap <Leader>r :! python <C-R>%<CR>
 
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
-nnoremap <Leader>tt :terminal<CR> 
+nnoremap <Leader>tt :terminal<CR>
+nnoremap <Leader>tv :vsplit<CR>:terminal<CR>
+nnoremap <Leader>th :split<CR>:terminal<CR>
 
 " Not sure if I want this, since it will not be available in other editors with
 " vim bindings
@@ -341,8 +345,8 @@ nnoremap <Leader>sw :w<CR>
 nnoremap <A-p> gqip
 nnoremap <Backspace> d^
 
-nnoremap <Leader>wh :split 
-nnoremap <Leader>wv :vsplit 
+nnoremap <Leader>wh :split
+nnoremap <Leader>wv :vsplit
 
 "split navigations
 " nnoremap <C-J> <C-W><C-J>
@@ -351,7 +355,7 @@ nnoremap <Leader>wv :vsplit
 " nnoremap <C-H> <C-W><C-H>
 
 " convenient pasting from primary register
-noremap <C-d> "+d
+" noremap <C-d> "+d
 noremap <C-y> "+y
 noremap <C-p> "+p
 
