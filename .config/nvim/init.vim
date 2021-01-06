@@ -77,6 +77,7 @@ Plug 'glts/vim-textobj-comment'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'Julian/vim-textobj-variable-segment'
+Plug 'sgur/vim-textobj-parameter'
 
 " surround everything
 Plug 'tpope/vim-surround'
@@ -86,6 +87,10 @@ Plug 'luochen1990/rainbow'
 
 " Markdown preview in Glow. Not working in the 0.4.4. Install the nightly
 " Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'}
+
+" brackets completion
+Plug 'Raimondi/delimitMate'
+
 call plug#end()
 
 " Enable folding
