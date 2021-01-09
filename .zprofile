@@ -104,6 +104,7 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 alias ls="exa"
 alias l="exa -al"
+alias la="exa -alh"
 
 # fix colors in gruvbox-hard for .pdf files (needed just for urxvt)
 # export EXA_COLORS="*.pdf=0;36:*.odt=0;36"
