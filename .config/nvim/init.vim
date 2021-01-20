@@ -1,4 +1,4 @@
-filetype off                  " required
+filetype plugin on                  " required
 
 call plug#begin('~/.vim/plugged')
 
@@ -175,9 +175,6 @@ let g:pydocstring_formatter = 'google'
 
 " appearance settings
 
-" Always transparent background
-hi Normal guibg=NONE ctermbg=NONE
-
 " enable 256 colors support directly in vim
 set termguicolors
 " let g:gruvbox_termcolors=16
@@ -190,6 +187,9 @@ let g:gruvbox_italic=1
 let g:gruvbox_sign_column="bg0"
 colorscheme gruvbox
 
+" Always transparent background
+hi Normal guibg=NONE ctermbg=NONE
+hi SignColumn ctermbg=None guibg=None
 " let g:airline_theme='gruvbox'
 
 " colorscheme choice
@@ -347,7 +347,7 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>sw :w<CR>
 
 nnoremap <A-p> gqip
-nnoremap <Backspace> d^
+nnoremap <Backspace> ^
 
 nnoremap <Leader>wh :split
 nnoremap <Leader>wv :vsplit
@@ -360,12 +360,17 @@ nnoremap <Leader>wv :vsplit
 
 " convenient pasting from primary register
 " noremap <C-d> "+d
-noremap <C-y> "+y
-noremap <C-p> "+p
+nnoremap <C-y> "+y
+nnoremap <C-p> "+p
+vnoremap <C-y> "+y
+vnoremap <C-p> "+p
 
 " easier tabulation
 vnoremap t >gv
 vnoremap r <gv
+
+" faster replace in v mode
+vnoremap s "hy:%s/<C-r>h//gc<left><left><left>
 
 " remove trailing whitespace
 nnoremap <Leader>tr :%s/\s\+$//e<CR>
@@ -378,4 +383,4 @@ nnoremap <Leader>tr :%s/\s\+$//e<CR>
 nnoremap <Leader>gc :GrammarousCheck<CR>
 nnoremap <Leader>gr :GrammarousReset<CR>
 
-nnoremap <Leader>dp :Pydocstring
+nnoremap <Leader>dp :Pydocstring<CR>
