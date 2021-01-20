@@ -91,6 +91,8 @@ Plug 'luochen1990/rainbow'
 " brackets completion
 Plug 'Raimondi/delimitMate'
 
+" pydoc generation
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 call plug#end()
 
 " Enable folding
@@ -138,6 +140,8 @@ set formatoptions-=tc
 let mapleader="-"
 " inoremap <Esc> <Nop>
 
+syntax on
+
 " Autocomplete set up
 
 "
@@ -167,7 +171,7 @@ let g:ycm_semantic_triggers = {
 
 
 let python_highlight_all=1
-syntax on
+let g:pydocstring_formatter = 'google'
 
 " appearance settings
 
@@ -373,3 +377,5 @@ nnoremap <Leader>tr :%s/\s\+$//e<CR>
 " let g:grammarous#use_location_list=1
 nnoremap <Leader>gc :GrammarousCheck<CR>
 nnoremap <Leader>gr :GrammarousReset<CR>
+
+nnoremap <Leader>dp :Pydocstring
