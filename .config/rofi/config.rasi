@@ -5,10 +5,11 @@
 /* rofi.theme: "~/.cache/wal/colors-rofi-dark.rasi"; */
 
 configuration {
-	modi: "run,drun";
+    font:"Unifont 12";
 
     /* gruvbox theme */
 	theme: ".config/rofi/gruvbox-dark-hard.rasi";
 
+	modi: "run,drun";
     show: "run";
 }

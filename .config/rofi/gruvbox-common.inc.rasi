@@ -8,13 +8,13 @@
 
 window {
     background-color: @background;
-    border:           2;
-    padding:          2;
+    border:           4;
+    padding:          20;
 }
 
 mainbox {
     border:  0;
-    padding: 0;
+    padding: 20;
 }
 
 message {
@@ -87,10 +87,10 @@ element.alternate.active {
 }
 
 scrollbar {
-    width:        4px;
+    width:        1px;
     border:       0;
     handle-color: @scrollbar-handle;
-    handle-width: 8px;
+    handle-width: 1px;
     padding:      0;
 }
 
