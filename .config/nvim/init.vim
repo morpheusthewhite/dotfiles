@@ -11,6 +11,7 @@ Plug 'airblade/vim-gitgutter'
 
 " git plugin
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 
 " Status line for vim
 Plug 'vim-airline/vim-airline'
@@ -380,7 +381,13 @@ nnoremap <Leader>tr :%s/\s\+$//e<CR>
 " Grammarous bindings and settings
 " let g:grammarous#show_first_error=0
 " let g:grammarous#use_location_list=1
-nnoremap <Leader>gc :GrammarousCheck<CR>
-nnoremap <Leader>gr :GrammarousReset<CR>
+nnoremap <Leader>grc :GrammarousCheck<CR>
+nnoremap <Leader>grr :GrammarousReset<CR>
 
 nnoremap <Leader>dp :Pydocstring<CR>
+
+" vim fugitive
+nnoremap <Leader>gc :Gcommmit -m ""<Left>
+nnoremap <Leader>ga :Gwrite<CR>
+nnoremap <Leader>gk :Gread<CR>
+nnoremap <Leader>gl :GV<CR>
