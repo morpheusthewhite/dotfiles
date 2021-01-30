@@ -13,7 +13,6 @@ alias ddd161="ddd --debugger mips-harvard-os161-gdb kernel"
 
 alias xcolors='msgcat --color=test'
 
-alias z="vim ~/.zsh_profile"
 alias h="history | grep"
 alias p="ps aux | grep"
 
@@ -25,6 +24,7 @@ alias xo="xdg-open"
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
+alias z="vim ~/.zprofile"
 
 alias bat="bat --plain"
 
@@ -32,6 +32,10 @@ alias ka="killall"
 alias gcal="gcalcli"
 alias gz="git cz"
 
+alias condai="conda install -c conda-forge"
+
+alias py="python"
+alias ipy="ipython"
 # functions and other funny things
 
 #
