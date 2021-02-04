@@ -35,7 +35,7 @@ alias gz="git cz"
 alias condai="conda install -c conda-forge"
 
 alias py="python"
-alias ipy="ipython"
+alias ipy="ipython --InteractiveShell.editing_mode=vi"
 # functions and other funny things
 
 #

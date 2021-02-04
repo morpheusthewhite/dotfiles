@@ -54,8 +54,8 @@ bind d composite tab #; tabclose #
 bind D tabclose
 
 " sane tab movements
-bind K tabnext
-bind J tabprev
+bind K tabprev
+bind J tabnext
 
 " I like wikiwand but I don't like the way it changes URLs
 " bindurl wikiwand.com yy composite js document.location.href.replace("wikiwand.com/en","wikipedia.org/wiki") | clipboard yank

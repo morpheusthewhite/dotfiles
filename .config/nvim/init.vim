@@ -232,7 +232,7 @@ let g:UltiSnipsExpandTrigger = "<C-l>"
 let g:UltiSnipsJumpForwardTrigger = "<C-l>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-h>"
 
-nnoremap <C-a> :AutoSaveToggle<CR>
+nnoremap <Leader>as :AutoSaveToggle<CR>
 
 " Markdown preview plugin
 " Plugin 'JamshedVesuna/vim-markdown-preview'
@@ -391,3 +391,9 @@ nnoremap <Leader>gc :Gcommmit -m ""<Left>
 nnoremap <Leader>ga :Gwrite<CR>
 nnoremap <Leader>gk :Gread<CR>
 nnoremap <Leader>gl :GV<CR>
+
+" vim-gitgutter
+omap ih <Plug>(GitGutterTextObjectInnerPending)
+omap ah <Plug>(GitGutterTextObjectOuterPending)
+xmap ih <Plug>(GitGutterTextObjectInnerVisual)
+xmap ah <Plug>(GitGutterTextObjectOuterVisual)
