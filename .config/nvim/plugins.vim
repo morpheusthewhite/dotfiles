@@ -62,7 +62,8 @@ Plug 'chrisbra/csv.vim'
 " I hate matlab IDE
 Plug 'daeyun/vim-matlab'
 
-" proper indentation
+" proper indentation and formatting
+Plug 'psf/black'
 Plug 'Chiel92/vim-autoformat'
 
 " grammar checks

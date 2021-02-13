@@ -123,7 +123,10 @@ augroup END
 
 augroup format
     autocmd!
-    autocmd BufWrite * :Autoformat
+    autocmd FileType markdown,vim,latex
+                \ autocmd! BufWrite * :Autoformat
+    autocmd FileType python
+                \ autocmd! BufWrite * :Black
 augroup END
 
 " Grammarous settings
