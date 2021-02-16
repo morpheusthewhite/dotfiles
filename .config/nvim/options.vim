@@ -11,6 +11,7 @@ set expandtab
 set autoindent
 set fileformat=unix
 set incsearch
+set nohlsearch
 set smartcase
 " open a new window at the bottom
 set splitbelow
@@ -25,7 +26,7 @@ set encoding=utf-8
 set formatoptions-=tc
 
 " protips
-let mapleader="-"
+let mapleader=" "
 
 syntax on
 
@@ -37,3 +38,4 @@ set termguicolors
 
 set scrolloff=1
 set sidescrolloff=2
+

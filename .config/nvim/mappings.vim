@@ -1,5 +1,5 @@
-" Enable folding with the spacebar
-nnoremap <space> za
+" Enable folding with -
+nnoremap - za
 
 " run current file with python
 nnoremap <Leader>r :! python <C-R>%<CR>
@@ -39,8 +39,10 @@ nnoremap <Leader>wv :vsplit
 " noremap <C-d> "+d
 nnoremap <C-y> "+y
 nnoremap <C-p> "+p
+nnoremap <C-P> "+P
 vnoremap <C-y> "+y
 vnoremap <C-p> "+p
+vnoremap <C-P> "+P
 
 " easier tabulation
 vnoremap t >gv
@@ -67,14 +69,16 @@ nnoremap <Leader>gk :Gread<CR>
 nnoremap <Leader>gl :GV<CR>
 
 " vim-gitgutter
-omap ih <Plug>(GitGutterTextObjectInnerPending)
-omap ah <Plug>(GitGutterTextObjectOuterPending)
-xmap ih <Plug>(GitGutterTextObjectInnerVisual)
-xmap ah <Plug>(GitGutterTextObjectOuterVisual)
+onoremap ih :GitGutterTextObjectInnerPending<CR>
+onoremap ah :GitGutterTextObjectOuterPending<CR>
+xnoremap ih :GitGutterTextObjectInnerVisual<CR>
+xnoremap ah :GitGutterTextObjectOuterVisual<CR>
+nnoremap [h :GitGutterPrevHunk<CR>
+nnoremap ]h :GitGutterNextHunk<CR>
 
 " 'cause I have small hands
-nnoremap gh ^
-nnoremap gl $
+noremap gh ^
+noremap gl $
 
 nnoremap zh <C-w>h
 nnoremap zl <C-w>l
@@ -100,9 +104,12 @@ nnoremap <Leader>as :AutoSaveToggle<CR>
 " nnoremap <Leader>et <plug>NERDTreeTabsToggle<CR>
 nnoremap <Leader>et :NERDTreeToggle<CR>
 
+nnoremap <silent> <Leader>cs :call NERDComment(0,"toggle")<CR>
+vnoremap <silent> <Leader>cs :call NERDComment(0,"toggle")<CR>
+
 " fzf related shortcuts (credits theprimeagen)
 nnoremap <Leader>ef :Files<CR>
-nnoremap <leader>ew :Rg <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>ew :Rg <C-R>=expand("<cword>")<CR><CR>
 
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 " https://vim.fandom.com/wiki/Quickly_adding_and_deleting_empty_lines
@@ -122,4 +129,8 @@ vnoremap <leader>p "_dP
 
 " Use <C-S> to clear the highlighting of :set hlsearch.
 nnoremap <silent> <C-S> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+
+" move to beginning and end of visual selection
+noremap g> `>
+noremap g< `<
 

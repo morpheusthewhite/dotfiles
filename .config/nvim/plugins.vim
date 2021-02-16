@@ -78,6 +78,7 @@ Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'Julian/vim-textobj-variable-segment'
 Plug 'sgur/vim-textobj-parameter'
+Plug 'bps/vim-textobj-python'
 
 " surround everything
 Plug 'tpope/vim-surround'
