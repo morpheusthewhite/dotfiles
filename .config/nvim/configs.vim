@@ -123,7 +123,7 @@ augroup END
 
 augroup format
     autocmd!
-    autocmd FileType markdown,vim,latex
+    autocmd FileType markdown,vim,tex,sh
                 \ autocmd! BufWrite * :Autoformat
     autocmd FileType python
                 \ autocmd! BufWrite * :Black

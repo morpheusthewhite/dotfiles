@@ -63,10 +63,14 @@ nnoremap <Leader>grr :GrammarousReset<CR>
 nnoremap <Leader>dp :Pydocstring<CR>
 
 " vim fugitive
-nnoremap <Leader>gc :Gcommmit -m ""<Left>
+nnoremap <Leader>gs :G<CR>
+nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>ga :Gwrite<CR>
 nnoremap <Leader>gk :Gread<CR>
 nnoremap <Leader>gl :GV<CR>
+nnoremap <Leader>gp :Gpush<CR>
+nnoremap <Leader>gh :diffget //2<CR>
+nnoremap <Leader>gl :diffget //3<CR>
 
 " vim-gitgutter
 onoremap ih :GitGutterTextObjectInnerPending<CR>
@@ -133,4 +137,5 @@ nnoremap <silent> <C-S> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR
 " move to beginning and end of visual selection
 noremap g> `>
 noremap g< `<
+
 
