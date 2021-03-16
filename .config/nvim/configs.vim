@@ -9,6 +9,10 @@ let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_key_list_stop_completion = ['<C-y>']
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_confirm_extra_conf = 0
+" use always the system-wide python for ycm
+" let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+" and for pynvim as well
+" let g:python3_host_prog='/usr/bin/python'
 
 " trigger semantic completion after 3 chars have been written
 let g:ycm_semantic_triggers = {
@@ -123,7 +127,7 @@ augroup END
 
 augroup format
     autocmd!
-    autocmd FileType markdown,vim,tex,sh
+    autocmd FileType markdown,vim,tex,sh,rust
                 \ autocmd! BufWrite * :Autoformat
     autocmd FileType python
                 \ autocmd! BufWrite * :Black
@@ -133,4 +137,22 @@ augroup END
 " let g:grammarous#show_first_error=0
 " let g:grammarous#use_location_list=1
 
-
+" Sort branches/tags by committer date. Minus sign to show in reverse order
+" (recent first)
+let g:fzf_checkout_git_options = '--sort=-committerdate'
+" Use the bang command to checkout a tag
+let g:fzf_tag_actions = {
+            \ 'checkout': {'execute': '!{git} checkout {branch}'},
+            \}
+" Define a diff action using fugitive. You can use it with :GBranches diff or
+"with :GBranches and pressing ctrl-f
+let g:fzf_branch_actions = {
+            \ 'diff': {
+            \   'prompt': 'Diff> ',
+            \   'execute': 'Git diff {branch}',
+            \   'multiple': v:false,
+            \   'keymap': 'ctrl-f',
+            \   'required': ['branch'],
+            \   'confirm': v:false,
+            \ },
+            \}

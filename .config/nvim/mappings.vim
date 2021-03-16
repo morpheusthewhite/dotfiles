@@ -69,8 +69,9 @@ nnoremap <Leader>ga :Gwrite<CR>
 nnoremap <Leader>gk :Gread<CR>
 nnoremap <Leader>gl :GV<CR>
 nnoremap <Leader>gp :Gpush<CR>
-nnoremap <Leader>gh :diffget //2<CR>
-nnoremap <Leader>gl :diffget //3<CR>
+nnoremap <Leader>gf :diffget //2<CR>
+nnoremap <Leader>gh :diffget //3<CR>
+nnoremap <Leader>gb :GBranches<CR>
 
 " vim-gitgutter
 onoremap ih :GitGutterTextObjectInnerPending<CR>

@@ -10,6 +10,7 @@ Plug 'airblade/vim-gitgutter'
 " git plugin
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
+Plug 'stsewd/fzf-checkout.vim'
 
 " Status line for vim
 Plug 'vim-airline/vim-airline'
