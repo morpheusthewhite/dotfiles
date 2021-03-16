@@ -79,3 +79,50 @@ endsnippet
 snippet prod "Productory"
 \\prod ^{${1}} _{${2}} ${0}
 endsnippet
+snippet mcal "Math cal" i
+\\mathcal\{${1}\} ${0}
+endsnippet
+snippet sfig "Subfigures"
+	\\begin{figure}
+	\\begin{center}
+		\\begin{subfigure}[${1:b}]{${2:0.4}\textwidth}
+			\\centering
+			\\includegraphics[width=\textwidth]{${3}}
+			\\caption{${4:$3}}
+			\\label{fig:${5:$3}}
+		\\end{subfigure}
+		\\begin{subfigure}[${6:b}]{${7:0.4}\textwidth}
+			\\centering
+			\\includegraphics[width=\textwidth]{${8}}
+			\\caption{${9:$8}}
+			\\label{fig:${10:$8}}
+		\\end{subfigure}
+	\\end{center}
+	\\end{figure}
+	${0}
+endsnippet
+snippet sfig3 "Subfigures 3"
+	\\begin{figure}
+	\\begin{center}
+		\\begin{subfigure}[${1:b}]{${2:0.3}\textwidth}
+			\\centering
+			\\includegraphics[width=\textwidth]{${3}}
+			\\caption{${4:$3}}
+			\\label{fig:${5:$3}}
+		\\end{subfigure}
+		\\begin{subfigure}[${6:b}]{${7:0.3}\textwidth}
+			\\centering
+			\\includegraphics[width=\textwidth]{${8}}
+			\\caption{${9:$8}}
+			\\label{fig:${10:$8}}
+		\\end{subfigure}
+		\\begin{subfigure}[${11:b}]{${12:0.3}\textwidth}
+			\\centering
+			\\includegraphics[width=\textwidth]{${13}}
+			\\caption{${14:$13}}
+			\\label{fig:${15:$13}}
+		\\end{subfigure}
+	\\end{center}
+	\\end{figure}
+	${0}
+endsnippet
