@@ -65,7 +65,8 @@ Plug 'daeyun/vim-matlab'
 
 " proper indentation and formatting
 Plug 'psf/black'
-Plug 'Chiel92/vim-autoformat'
+" Plug 'Chiel92/vim-autoformat'
+Plug 'sbdchd/neoformat'
 
 " grammar checks
 Plug 'rhysd/vim-grammarous'

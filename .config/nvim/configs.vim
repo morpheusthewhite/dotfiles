@@ -128,7 +128,7 @@ augroup END
 augroup format
     autocmd!
     autocmd FileType markdown,vim,tex,sh,rust
-                \ autocmd! BufWrite * :Autoformat
+                \ autocmd! BufWritePre * undojoin | Neoformat
     autocmd FileType python
                 \ autocmd! BufWrite * :Black
 augroup END

@@ -67,9 +67,11 @@ setup_workspaces_monitor_polybar
 /usr/lib/pam_kwallet_init &
 sxhkd &
 picom &
-feh --bg-max /home/francesco/Pictures/Wallpapers/space_pixel.jpg
+feh --bg-max /home/francesco/Pictures/Wallpapers/house_forest_pixel.jpg
 wal --theme base16-gruvbox-hard
+# set keymap options
 setxkbmap -layout it -variant us &
+
 dunst &
 ~/.config/polybar/launch.sh &
 # source "/home/francesco/.cache/wal/colors.sh"

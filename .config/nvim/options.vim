@@ -2,6 +2,9 @@
 set foldmethod=indent
 set foldlevel=2
 
+" execute the .vimrc if present in the current dir
+set exrc
+
 " create a coherent and good indentation level over all files
 set tabstop=4
 set softtabstop=4
@@ -10,11 +13,16 @@ set textwidth=79
 set expandtab
 set autoindent
 set fileformat=unix
+
+" search options
 set incsearch
 set nohlsearch
 set smartcase
+set ignorecase
+
 " open a new window at the bottom
 set splitbelow
+
 " turn relative line numbers on
 set number relativenumber
 set splitright
