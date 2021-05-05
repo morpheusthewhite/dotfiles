@@ -718,8 +718,8 @@ key_bindings:
   #- { key: Left,                        mode: Vi, action: Left                    }
   #- { key: Right,                       mode: Vi, action: Right                   }
   #- { key: Key0,                        mode: Vi, action: First                   }
-  #- { key: Key4,   mods: Shift,         mode: Vi, action: Last                    }
-  #- { key: Key6,   mods: Shift,         mode: Vi, action: FirstOccupied           }
+  - { key: Key4,   mods: Shift,         mode: Vi, action: Last                    }
+  - { key: Key6,   mods: Shift,         mode: Vi, action: FirstOccupied           }
   #- { key: H,      mods: Shift,         mode: Vi, action: High                    }
   #- { key: M,      mods: Shift,         mode: Vi, action: Middle                  }
   #- { key: L,      mods: Shift,         mode: Vi, action: Low                     }
