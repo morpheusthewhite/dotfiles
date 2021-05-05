@@ -96,5 +96,11 @@ Plug 'Raimondi/delimitMate'
 
 " pydoc generation
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+
+" " todo management
+" Plug 'jceb/vim-orgmode'
+
+" vim-plug
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 call plug#end()
 
