@@ -128,9 +128,11 @@ augroup END
 augroup format
     autocmd!
     autocmd FileType markdown,vim,tex,sh,rust
-                \ autocmd! BufWritePre * undojoin | Neoformat
+                \ autocmd! BufWritePre <buffer=abuf> undojoin | Neoformat
+    autocmd FileType vim,sh,python
+                \ set formatoptions-=tc
     autocmd FileType python
-                \ autocmd! BufWrite * :Black
+                \ autocmd! BufWrite <buffer=abuf> :Black
 augroup END
 
 " Grammarous settings

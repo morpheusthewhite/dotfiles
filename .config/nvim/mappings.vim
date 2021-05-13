@@ -39,10 +39,8 @@ nnoremap <Leader>wv :vsplit
 " noremap <C-d> "+d
 nnoremap <C-y> "+y
 nnoremap <C-p> "+p
-nnoremap <C-P> "+P
 vnoremap <C-y> "+y
 vnoremap <C-p> "+p
-vnoremap <C-P> "+P
 
 " easier tabulation
 vnoremap t >gv
@@ -70,7 +68,7 @@ nnoremap <Leader>gk :Gread<CR>
 nnoremap <Leader>gl :GV<CR>
 nnoremap <Leader>gp :Gpush<CR>
 nnoremap <Leader>gf :diffget //2<CR>
-nnoremap <Leader>gh :diffget //3<CR>
+nnoremap <Leader>gj :diffget //3<CR>
 nnoremap <Leader>gb :GBranches<CR>
 
 " vim-gitgutter
@@ -80,10 +78,6 @@ xnoremap ih :GitGutterTextObjectInnerVisual<CR>
 xnoremap ah :GitGutterTextObjectOuterVisual<CR>
 nnoremap [h :GitGutterPrevHunk<CR>
 nnoremap ]h :GitGutterNextHunk<CR>
-
-" 'cause I have small hands
-noremap gh ^
-noremap gl $
 
 nnoremap zh <C-w>h
 nnoremap zl <C-w>l
