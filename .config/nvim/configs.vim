@@ -1,6 +1,4 @@
 " let python_highlight_all=1
-let g:pydocstring_formatter = 'google'
-
 " fix line numbering
 " launch the extension on an empty file
 let g:vim_be_good_floating = 0

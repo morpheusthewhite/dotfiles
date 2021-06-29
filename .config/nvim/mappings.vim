@@ -53,9 +53,6 @@ vnoremap s "hy:%s/<C-r>h//gc<left><left><left>
 nnoremap <Leader>tr :%s/\s\+$//e<CR>
 
 " nnoremap <Leader>wp :Glow<CR>
-
-nnoremap <Leader>dp :Pydocstring<CR>
-
 nnoremap zh <C-w>h
 nnoremap zl <C-w>l
 nnoremap zj <C-w>j
