@@ -47,3 +47,6 @@ set termguicolors
 set scrolloff=1
 set sidescrolloff=2
 
+" set how much to show in latex
+set conceallevel=1
+

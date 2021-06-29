@@ -102,5 +102,8 @@ Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 
 " vim-plug
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
+" undotree
+Plug 'mbbill/undotree'
 call plug#end()
 

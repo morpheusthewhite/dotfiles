@@ -43,8 +43,8 @@ vnoremap <C-y> "+y
 vnoremap <C-p> "+p
 
 " easier tabulation
-vnoremap t >gv
-vnoremap r <gv
+" vnoremap t >gv
+" vnoremap r <gv
 
 " faster replace in v mode
 vnoremap s "hy:%s/<C-r>h//gc<left><left><left>
@@ -54,57 +54,18 @@ nnoremap <Leader>tr :%s/\s\+$//e<CR>
 
 " nnoremap <Leader>wp :Glow<CR>
 
-" Grammarous bindings
-nnoremap <Leader>grc :GrammarousCheck<CR>
-nnoremap <Leader>grr :GrammarousReset<CR>
-
 nnoremap <Leader>dp :Pydocstring<CR>
-
-" vim fugitive
-nnoremap <Leader>gs :G<CR>
-nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <Leader>ga :Gwrite<CR>
-nnoremap <Leader>gk :Gread<CR>
-nnoremap <Leader>gl :GV<CR>
-nnoremap <Leader>gp :Gpush<CR>
-nnoremap <Leader>gf :diffget //2<CR>
-nnoremap <Leader>gj :diffget //3<CR>
-nnoremap <Leader>gb :GBranches<CR>
-
-" vim-gitgutter
-onoremap ih :GitGutterTextObjectInnerPending<CR>
-onoremap ah :GitGutterTextObjectOuterPending<CR>
-xnoremap ih :GitGutterTextObjectInnerVisual<CR>
-xnoremap ah :GitGutterTextObjectOuterVisual<CR>
-nnoremap [h :GitGutterPrevHunk<CR>
-nnoremap ]h :GitGutterNextHunk<CR>
 
 nnoremap zh <C-w>h
 nnoremap zl <C-w>l
 nnoremap zj <C-w>j
 nnoremap zk <C-w>k
 
-" invoke automatic formatting from vim-autoformat
-noremap <F3> :Autoformat<CR>
-
-nnoremap <Leader>cd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <Leader>cp :YcmCompleter GoToReferences<CR>
-nnoremap <Leader>cf :YcmCompleter FixIt<CR>
-nnoremap <Leader>cr :YcmCompleter RefactorRename<Space>
-nnoremap <Leader>c= :YcmCompleter Format<CR>
-nnoremap <Leader>cd :YcmCompleter GetDoc<CR>
-nnoremap <Leader>ct :YcmCompleter GoToDefinition<CR>
-
-nnoremap <C-enter> :call Synctex()<cr>
-
 nnoremap <Leader>as :AutoSaveToggle<CR>
 
 " Nerdtree(-tabs) setup
 " nnoremap <Leader>et <plug>NERDTreeTabsToggle<CR>
 nnoremap <Leader>et :NERDTreeToggle<CR>
-
-nnoremap <silent> <Leader>cs :call NERDComment(0,"toggle")<CR>
-vnoremap <silent> <Leader>cs :call NERDComment(0,"toggle")<CR>
 
 " fzf related shortcuts (credits theprimeagen)
 nnoremap <Leader>ef :Files<CR>
@@ -118,7 +79,7 @@ nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " make terminal mode Esc key great again
-tnoremap <Esc> <C-\><C-n>
+" tnoremap <Esc> <C-\><C-n>
 
 " greatest remap ever, thanks @primagen
 vnoremap <leader>p "_dP
@@ -133,4 +94,10 @@ nnoremap <silent> <C-S> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR
 noremap g> `>
 noremap g< `<
 
+" navigate location list
+nnoremap <Leader>ln :lnext<CR>
+nnoremap <Leader>lp :lprev<CR>
+nnoremap <Leader>ll :llist<CR>
 
+" undotree
+nnoremap <Leader>u :UndotreeToggle<CR>
