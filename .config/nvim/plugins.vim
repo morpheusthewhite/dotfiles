@@ -52,8 +52,10 @@ Plug 'neomake/neomake'
 Plug 'vim-scripts/indentpython.vim'
 
 " autocompletion
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-"Plug 'neoclide/coc.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
+" Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-compe'
 
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 

@@ -50,3 +50,8 @@ set sidescrolloff=2
 " set how much to show in latex
 set conceallevel=1
 
+" sane completion
+set completeopt=menuone,noselect
+
+" Avoid showing message extra message when using completion
+set shortmess+=c
