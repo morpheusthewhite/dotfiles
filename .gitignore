@@ -8,3 +8,5 @@
 !.gitignore
 !.oh-my-zsh/custom/themes/zeta.zsh-theme
 !.tmux.conf
+!.config/nvim/**
+.net*
