@@ -1,9 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-" fzf for file search
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
 " better fzf
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -16,7 +12,6 @@ Plug 'airblade/vim-gitgutter'
 " git plugin
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
-Plug 'stsewd/fzf-checkout.vim'
 
 " Status line for vim
 Plug 'vim-airline/vim-airline'
