@@ -9,7 +9,7 @@ let g:tex_conceal='abdmg'
 
 augroup tex
     au!
-    au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+    " au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
     au FileType tex set formatoptions+=t
     " autocompile shortcut
     " autocmd FileType tex nmap <buffer> <C-T> :!latexmk -pdf %<CR>

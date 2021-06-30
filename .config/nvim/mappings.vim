@@ -4,7 +4,6 @@ nnoremap - za
 " run current file with python
 nnoremap <Leader>r :! python <C-R>%<CR>
 
-nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 nnoremap <Leader>tt :terminal<CR>
 nnoremap <Leader>tv :vsplit<CR>:terminal<CR>
@@ -63,10 +62,6 @@ nnoremap <Leader>as :AutoSaveToggle<CR>
 " Nerdtree(-tabs) setup
 " nnoremap <Leader>et <plug>NERDTreeTabsToggle<CR>
 nnoremap <Leader>et :NERDTreeToggle<CR>
-
-" fzf related shortcuts (credits theprimeagen)
-nnoremap <Leader>ef :Files<CR>
-nnoremap <Leader>ew :Rg <C-R>=expand("<cword>")<CR><CR>
 
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 " https://vim.fandom.com/wiki/Quickly_adding_and_deleting_empty_lines
