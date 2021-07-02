@@ -108,5 +108,8 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " undotree
 Plug 'mbbill/undotree'
+
+" treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
