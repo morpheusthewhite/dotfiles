@@ -15,7 +15,8 @@ Plug 'junegunn/gv.vim'
 
 " Status line for vim
 Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
+
 
 " for comments
 Plug 'scrooloose/nerdcommenter'
@@ -36,10 +37,12 @@ Plug 'lervag/vimtex'
 
 " colorschemes
 " Plugin 'challenger-deep-theme/vim', {'name': 'challenger-deep-theme'}
-Plug 'dylanaraps/wal.vim'
+" Plug 'dylanaraps/wal.vim'
 " Plug 'deviantfero/wpgtk.vim'
 " Plug 'dracula/vim', { 'name': 'dracula' }
-Plug 'gruvbox-community/gruvbox'
+" Plug 'gruvbox-community/gruvbox'
+Plug 'rktjmp/lush.nvim', { 'branch': 'main' }
+Plug 'npxbr/gruvbox.nvim', { 'branch': 'main' }
 
 " syntax highlighting
 Plug 'neomake/neomake'
@@ -54,7 +57,7 @@ Plug 'vim-scripts/indentpython.vim'
 
 " autocompletion
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
+Plug 'kabouzeid/nvim-lspinstall', { 'branch': 'main' }
 " Plug 'nvim-lua/completion-nvim'
 Plug 'hrsh7th/nvim-compe'
 
