@@ -114,5 +114,12 @@ Plug 'mbbill/undotree'
 
 " treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" improved terminals
+Plug 'akinsho/nvim-toggleterm.lua'
+
+" icons everywhere
+Plug 'kyazdani42/nvim-web-devicons'   
+
 call plug#end()
 

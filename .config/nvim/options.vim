@@ -55,3 +55,6 @@ set completeopt=menuone,noselect
 
 " Avoid showing message extra message when using completion
 set shortmess+=c
+
+" needed by toggleterm
+set hidden
