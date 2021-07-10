@@ -65,7 +65,7 @@ ZSH_THEME="classyTouch"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git autojump archlinux colored-man-pages vi-mode 
+  git autojump archlinux colored-man-pages vi-mode zsh-autosuggestions 
 )
 
 # automatically starts tmux
