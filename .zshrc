@@ -64,6 +64,7 @@ ZSH_THEME="classyTouch"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# For adding completion, follow https://www.dev-diaries.com/blog/terminal-history-auto-suggestions-as-you-type/
 plugins=(
   git autojump archlinux colored-man-pages vi-mode zsh-autosuggestions 
 )
@@ -158,3 +159,48 @@ bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
 
 bindkey '^L' autosuggest-accept
+
+# big brain completion, follow https://www.dev-diaries.com/blog/terminal-history-auto-suggestions-as-you-type/
+source $HOME/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh
+autoload -Uz add-zsh-hook
+# Query to pull in the most recent command if anything was found similar
+# in that directory. Otherwise pull in the most recent command used anywhere
+# Give back the command that was used most recently
+_zsh_autosuggest_strategy_histdb_top_fallback() {
+    local query="
+    select commands.argv from
+    history left join commands on history.command_id = commands.rowid
+    left join places on history.place_id = places.rowid
+    where places.dir LIKE
+        case when exists(select commands.argv from history
+        left join commands on history.command_id = commands.rowid
+        left join places on history.place_id = places.rowid
+        where places.dir LIKE '$(sql_escape $PWD)%'
+        AND commands.argv LIKE '$(sql_escape $1)%')
+            then '$(sql_escape $PWD)%'
+            else '%'
+            end
+    and commands.argv LIKE '$(sql_escape $1)%'
+    group by commands.argv
+    order by places.dir LIKE '$(sql_escape $PWD)%' desc,
+        history.start_time desc
+    limit 1"
+    suggestion=$(_histdb_query "$query")
+}
+
+ZSH_AUTOSUGGEST_STRATEGY=histdb_top_fallback
+
+# add in a command to show the local history only
+show_local_history() {
+    limit="${1:-10}"
+    local query="
+        select history.start_time, commands.argv
+        from history left join commands on history.command_id = commands.rowid
+        left join places on history.place_id = places.rowid
+        where places.dir LIKE '$(sql_escape $PWD)%'
+        order by history.start_time desc
+        limit $limit
+    "
+    results=$(_histdb_query "$query")
+    echo "$results"
+}
