@@ -33,6 +33,14 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<Leader>lr', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
     buf_set_keymap("n", "<Leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
+    -- signature
+    require "lsp_signature".on_attach({
+        bind = true, -- This is mandatory, otherwise border config won't get registered.
+        hint_prefix = "⧠ ",
+        handler_opts = {
+            border = "rounded",
+            }
+    })
 end
 
 for _, server in pairs(servers) do
@@ -65,4 +73,6 @@ EOF
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" signature
 
