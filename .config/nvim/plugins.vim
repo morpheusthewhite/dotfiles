@@ -22,8 +22,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 
 " fs explorer
-Plug 'preservim/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'preservim/nerdtree'
+" Plug 'jistr/vim-nerdtree-tabs'
+Plug 'kyazdani42/nvim-tree.lua'
 
 " auto save
 Plug 'vim-scripts/vim-auto-save'

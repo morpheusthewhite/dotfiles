@@ -59,10 +59,6 @@ nnoremap zk <C-w>k
 
 nnoremap <Leader>as :AutoSaveToggle<CR>
 
-" Nerdtree(-tabs) setup
-" nnoremap <Leader>et <plug>NERDTreeTabsToggle<CR>
-nnoremap <Leader>et :NERDTreeToggle<CR>
-
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 " https://vim.fandom.com/wiki/Quickly_adding_and_deleting_empty_lines
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
