@@ -1,4 +1,5 @@
 lua <<EOF
+local actions = require('telescope.actions')
 require('telescope').setup {
     defaults = {
         file_sorter = require('telescope.sorters').get_fzy_sorter,
@@ -12,9 +13,9 @@ require('telescope').setup {
         mappings = {
             i = {
                 ["<C-x>"] = false,
-                -- ["<C-q>"] = actions.send_to_qflist,
+                ["<C-q>"] = actions.send_to_qflist,
             },
-        }
+        },
     },
     extensions = {
         fzy_native = {
