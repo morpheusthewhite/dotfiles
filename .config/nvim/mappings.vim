@@ -89,3 +89,8 @@ nnoremap <Leader>ll :llist<CR>
 
 " undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
+
+nnoremap Y y$
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
