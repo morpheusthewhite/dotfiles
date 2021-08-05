@@ -124,5 +124,8 @@ Plug 'akinsho/nvim-toggleterm.lua'
 " icons everywhere
 Plug 'kyazdani42/nvim-web-devicons'   
 
+" Lightning fast left-right movement
+Plug 'unblevable/quick-scope'       
+
 call plug#end()
 
