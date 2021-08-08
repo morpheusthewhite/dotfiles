@@ -107,9 +107,9 @@ Plug 'Raimondi/delimitMate'
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 
 " " todo management
-" Plug 'jceb/vim-orgmode'
+Plug 'jceb/vim-orgmode'
 
-" vim-plug
+" display hex colors in file
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " undotree
