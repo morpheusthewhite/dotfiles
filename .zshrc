@@ -4,7 +4,7 @@
 PATH=$PATH:$HOME/.local/bin
 
 # Path to your oh-my-zsh installation.
-  export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -163,32 +163,49 @@ bindkey '^L' autosuggest-accept
 # big brain completion, follow https://www.dev-diaries.com/blog/terminal-history-auto-suggestions-as-you-type/
 source $HOME/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh
 autoload -Uz add-zsh-hook
+
 # Query to pull in the most recent command if anything was found similar
 # in that directory. Otherwise pull in the most recent command used anywhere
 # Give back the command that was used most recently
-_zsh_autosuggest_strategy_histdb_top_fallback() {
-    local query="
-    select commands.argv from
-    history left join commands on history.command_id = commands.rowid
-    left join places on history.place_id = places.rowid
-    where places.dir LIKE
-        case when exists(select commands.argv from history
-        left join commands on history.command_id = commands.rowid
-        left join places on history.place_id = places.rowid
-        where places.dir LIKE '$(sql_escape $PWD)%'
-        AND commands.argv LIKE '$(sql_escape $1)%')
-            then '$(sql_escape $PWD)%'
-            else '%'
-            end
-    and commands.argv LIKE '$(sql_escape $1)%'
-    group by commands.argv
-    order by places.dir LIKE '$(sql_escape $PWD)%' desc,
-        history.start_time desc
-    limit 1"
+# _zsh_autosuggest_strategy_histdb_top_fallback() {
+#     local query="
+#     select commands.argv from
+#     history left join commands on history.command_id = commands.rowid
+#     left join places on history.place_id = places.rowid
+#     where places.dir LIKE
+#         case when exists(select commands.argv from history
+#         left join commands on history.command_id = commands.rowid
+#         left join places on history.place_id = places.rowid
+#         where places.dir LIKE '$(sql_escape $PWD)%'
+#         AND commands.argv LIKE '$(sql_escape $1)%')
+#             then '$(sql_escape $PWD)%'
+#             else '%'
+#             end
+#     and commands.argv LIKE '$(sql_escape $1)%'
+#     group by commands.argv
+#     order by places.dir LIKE '$(sql_escape $PWD)%' desc,
+#         history.start_time desc
+#     limit 1"
+#     suggestion=$(_histdb_query "$query")
+# }
+# ZSH_AUTOSUGGEST_STRATEGY=histdb_top_fallback
+
+# This will find the most frequently issued command issued exactly in this
+# directory, or if there are no matches it will find the most frequently issued
+# command in any directory. You could use other fields like the hostname to
+# restrict to suggestions on this host, etc.
+_zsh_autosuggest_strategy_histdb_top() {
+    local query="select commands.argv from
+history left join commands on history.command_id = commands.rowid
+left join places on history.place_id = places.rowid
+where commands.argv LIKE '$(sql_escape $1)%'
+group by commands.argv
+order by places.dir != '$(sql_escape $PWD)', count(*) desc limit 1"
     suggestion=$(_histdb_query "$query")
 }
 
-ZSH_AUTOSUGGEST_STRATEGY=histdb_top_fallback
+ZSH_AUTOSUGGEST_STRATEGY=histdb_top
+
 
 # add in a command to show the local history only
 show_local_history() {
