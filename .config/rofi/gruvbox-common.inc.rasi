@@ -94,7 +94,7 @@ scrollbar {
     padding:      0;
 }
 
-sidebar {
+mode-switcher {
     border:       2px 0 0;
     border-color: @separatorcolor;
 }
@@ -124,4 +124,8 @@ textbox-prompt-sep {
     str:        ":";
     text-color: @normal-foreground;
     margin:     0 0.3em 0 0;
+}
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
 }
