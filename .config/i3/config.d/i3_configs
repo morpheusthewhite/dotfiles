@@ -1,0 +1,24 @@
+# the vars file needs to be first so that other config files can use the vars
+# defined within it.
+
+# local configuration variables
+import vars;
+
+# system-independent configurations
+import base;
+
+# global bindings
+import bindings;
+
+# startup commands 
+import startup;
+
+# import colors;
+# import gaps;
+# import menus;
+# import screenshots;
+# import terminal;
+# import todo;
+# import containers;
+# import workspaces;
+# import xf86;

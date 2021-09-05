@@ -1,0 +1,15 @@
+# i3 config file (v4)
+#
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+# This file contains startup commands
+
+# set keymap options
+exec --no-startup-id setxkbmap -layout it -variant us &
+exec --no-startup-id enable_fn
+
+# polybar, wallpaper and colors
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id feh --bg-fill Pictures/Wallpapers/anime/k1inmweviame.jpg
+exec_always --no-startup-id wal --theme base16-gruvbox-hard
+
