@@ -7,7 +7,7 @@ super + Return
 	alacritty
 
 # program launcher
-super + d
+super + comma
 	rofi -show-icons -show run
 
 # make sxhkd reload its configuration files:
@@ -59,12 +59,12 @@ super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
-super + {w,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+super + b
+    bspc node -f @brother
 
 # focus the next/previous node in the current desktop
-super + {_,shift + }b
-	bspc node -f {next,prev}.local
+# super + {_,shift + }b
+#     bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
 # super + bracket{left,right}
@@ -87,6 +87,9 @@ super + {o,i}
 # focus the given desktop
 super + {1-9,0}
 	bspc desktop -f '^{1-9,10}'
+
+super + @space; {6-9,0}
+	bspc desktop -f '^{1-5}'
 
 # send the node to the given desktop and focus it
 super + shift + {1-9,0}
@@ -160,17 +163,21 @@ Print
 	flameshot gui
 
 # telegram
-super + alt + t
+super + @space; i
 	telegram-desktop && bspc desktop -f '^5'
 
 # spotify
-super + alt + s
+super + @space; y
 	spotify
 
 # mail
-super + alt + m
+super + @space; m
 	mailspring
 
 # ranger 
-super + r
+super + u
     alacritty -e ranger
+
+# music controls
+XF86Audio{Prev,Next}
+    sp {prev, next}
