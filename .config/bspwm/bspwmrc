@@ -108,5 +108,5 @@ bspc rule -a feh state=floating
 bspc rule -a "TelegramDesktop" desktop='^5' follow=on
 bspc rule -a "Mailspring" desktop='^4' follow=on
 bspc rule -a "Slack" desktop='^4' follow=on
-bspc rule -a "Spotify" desktop='^8' follow=on
 bspc rule -a Zathura state=tiled
+bspc config external_rules_command "$HOME/.config/bspwm/scripts/spotify_external_rule"
