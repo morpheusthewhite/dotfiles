@@ -90,13 +90,13 @@ nnoremap <Leader>ll :llist<CR>
 " undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
 
-# thanks, again, ThePrimeagen
-# https://www.youtube.com/channel/UC8ENHE5xdFSwx71u3fDH5Xw
+" thanks, again, ThePrimeagen
+" https://www.youtube.com/channel/UC8ENHE5xdFSwx71u3fDH5Xw
 nnoremap Y y$
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
-# undo break points
+" undo break points
 inoremap , ,<C-g>u
 inoremap . .<C-g>u
 inoremap ! !<C-g>u
