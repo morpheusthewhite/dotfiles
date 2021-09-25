@@ -127,5 +127,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 " Lightning fast left-right movement
 Plug 'unblevable/quick-scope'       
 
+" Nice-looking tabs
+" Plug 'akinsho/nvim-bufferline.lua'
+" Plug 'romgrk/barbar.nvim'
 call plug#end()
 
