@@ -82,10 +82,10 @@ enable_fn
 fetch_colors
 
 #bspc config normal_border_color "$BLACK"
-bspc config focused_border_color "$YELLOW"
+bspc config focused_border_color "$GREEN"
 #bspc config active_border_color "$BLUE"
-bspc config urgent_border_color $color1
-bspc config presel_feedback_color $color7
+bspc config urgent_border_color "$RED"
+bspc config presel_feedback_color "$WHITE"
 
 bspc config border_width             1
 bspc config top_padding              22
@@ -105,6 +105,7 @@ bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a mplayer2 state=floating
 bspc rule -a Screenkey manage=off
 bspc rule -a feh state=floating
+bspc rule -a kronometer state=floating
 bspc rule -a "TelegramDesktop" desktop='^5' follow=on
 bspc rule -a "Mailspring" desktop='^4' follow=on
 bspc rule -a "Slack" desktop='^4' follow=on
