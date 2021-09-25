@@ -18,7 +18,7 @@ function setup_workspaces_monitor_polybar(){
 		echo "Single monitor"
 
         xrandr --output "${primary_monitor}" --primary "${primary_monitor_mode[@]}"
-		bspc monitor -d I II III IV V VI VII VIII IX 
+		bspc monitor -d I II III IV V VI VII VIII IX X
 	else
 		echo "Double monitor"
 
@@ -37,8 +37,8 @@ function setup_workspaces_monitor_polybar(){
 		    xrandr --output "${primary_monitor}" --primary "${primary_monitor_mode[@]}" --output "${other_monitor}" "${other_monitor_mode[@]}" --right-of "${primary_monitor}"
         fi
 
-        bspc monitor "${primary_monitor}" -d I II III IV V
-		bspc monitor "${other_monitor}" -d VI VII VIII IX
+        bspc monitor "${primary_monitor}" -d I II III IV V VI VII VIII IX
+		bspc monitor "${other_monitor}" -d X
         
 	fi
 }
@@ -67,7 +67,7 @@ setup_workspaces_monitor_polybar
 /usr/lib/pam_kwallet_init &
 sxhkd &
 picom &
-feh --bg-max /home/francesco/Pictures/Wallpapers/house_forest_pixel.jpg
+feh --bg-fill Pictures/Wallpapers/anime/k1inmweviame.jpg
 wal --theme base16-gruvbox-hard
 # set keymap options
 setxkbmap -layout it -variant us &
