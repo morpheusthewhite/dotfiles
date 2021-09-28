@@ -1,0 +1,2 @@
+packloadall
+silent! helptags ALL

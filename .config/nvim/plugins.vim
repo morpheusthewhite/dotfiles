@@ -130,5 +130,9 @@ Plug 'unblevable/quick-scope'
 " Nice-looking tabs
 " Plug 'akinsho/nvim-bufferline.lua'
 " Plug 'romgrk/barbar.nvim'
+
+" debugging
+Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'
 call plug#end()
 
