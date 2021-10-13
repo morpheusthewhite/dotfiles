@@ -17,7 +17,6 @@ Plug 'junegunn/gv.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-
 " for comments
 Plug 'scrooloose/nerdcommenter'
 
@@ -128,7 +127,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'unblevable/quick-scope'       
 
 " Nice-looking tabs
-" Plug 'akinsho/nvim-bufferline.lua'
+Plug 'akinsho/nvim-bufferline.lua'
 " Plug 'romgrk/barbar.nvim'
 
 " debugging
