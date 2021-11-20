@@ -127,7 +127,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'unblevable/quick-scope'       
 
 " Nice-looking tabs
-Plug 'akinsho/nvim-bufferline.lua'
+" Plug 'akinsho/nvim-bufferline.lua'
 " Plug 'romgrk/barbar.nvim'
 
 " debugging

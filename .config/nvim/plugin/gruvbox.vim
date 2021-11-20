@@ -13,5 +13,3 @@ hi Normal guibg=NONE ctermbg=NONE
 hi SignColumn ctermbg=None guibg=None
 hi NormalFloat ctermbg=None guibg=None
 hi FloatBorder ctermbg=None guibg=None
-
-let g:airline_theme='base16_gruvbox_dark_hard'

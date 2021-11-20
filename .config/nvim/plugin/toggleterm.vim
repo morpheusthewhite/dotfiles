@@ -9,7 +9,7 @@ require("toggleterm").setup{
   --   end
   -- end,
   size = 20,
-  open_mapping = [[<c-\>]],
+  open_mapping = [[<C-]>]],
   hide_numbers = true, -- hide the number column in toggleterm buffers
   shade_filetypes = {},
   shade_terminals = false,
@@ -17,7 +17,7 @@ require("toggleterm").setup{
   start_in_insert = true,
   insert_mappings = true, -- whether or not the open mapping applies in insert mode
   persist_size = true,
-  direction = 'float', -- 'vertical' | 'horizontal' | 'window' | 'float'
+  direction = 'horizontal', -- 'vertical' | 'horizontal' | 'window' | 'float'
   shell = vim.o.shell, -- change the default shell
   close_on_exit = true, -- close the terminal window when the process exits
   -- This field is only relevant if direction is set to 'float'
@@ -37,3 +37,5 @@ require("toggleterm").setup{
   }
 }
 EOF
+
+tnoremap <C-e> <C-\><C-n>
