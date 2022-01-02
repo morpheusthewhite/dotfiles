@@ -6,10 +6,8 @@
 
 configuration {
     font:"Unifont 12";
-
-    /* gruvbox theme */
-	theme: ".config/rofi/gruvbox-dark-hard.rasi";
-
 	modi: "run,drun";
     show: "run";
 }
+/* gruvbox theme */
+@theme "/home/francesco/.config/rofi/gruvbox-dark-hard.rasi"
