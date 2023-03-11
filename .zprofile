@@ -31,6 +31,8 @@ alias bat="bat --plain"
 alias ka="killall"
 alias gcal="gcalcli"
 alias gz="git cz"
+alias gs="git status"
+alias gdc="git diff --cached"
 
 alias condai="conda install -c conda-forge"
 

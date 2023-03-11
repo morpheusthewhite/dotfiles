@@ -56,12 +56,15 @@ Plug 'neomake/neomake'
 Plug 'vim-scripts/indentpython.vim'
 
 " autocompletion
+Plug 'williamboman/mason.nvim', { 'branch': 'main' }
+Plug 'williamboman/mason-lspconfig.nvim', { 'branch': 'main' }
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall', { 'branch': 'main' }
 " Plug 'nvim-lua/completion-nvim'
 Plug 'hrsh7th/nvim-compe'
 " function signatures
 Plug 'ray-x/lsp_signature.nvim'
+" java
+Plug 'mfussenegger/nvim-jdtls'
 
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 

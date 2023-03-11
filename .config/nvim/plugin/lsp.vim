@@ -1,6 +1,6 @@
 lua << EOF
-require 'lspinstall'.setup()
-local servers = require 'lspinstall'.installed_servers()
+require("mason").setup()
+require("mason-lspconfig").setup()
 
 -- Use an on_attach function to only map the following keys 
 -- after the language server attaches to the current buffer
@@ -43,25 +43,19 @@ local on_attach = function(client, bufnr)
     })
 end
 
-for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{on_attach=on_attach}
-end
-
-local function setup_servers()
-    require 'lspinstall'.setup()
-    local servers = require'lspinstall'.installed_servers()
-    for _, server in pairs(servers) do
-        require'lspconfig'[server].setup{on_attach=on_attach}
-    end
-end
-
-setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-    setup_servers() -- reload installed servers
-    vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
+require("mason-lspconfig").setup_handlers {
+    -- The first entry (without a key) will be the default handler
+    -- and will be called for each installed server that doesn't have
+    -- a dedicated handler.
+    function (server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup {on_attach=on_attach}
+    end,
+    -- Next, you can provide a dedicated handler for specific servers.
+    -- For example, a handler override for the `rust_analyzer`:
+    -- ["rust_analyzer"] = function ()
+    --     require("rust-tools").setup {}
+    -- end
+}
 EOF
 
 " Use completion-nvim in every buffer
@@ -73,6 +67,4 @@ EOF
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" signature
 

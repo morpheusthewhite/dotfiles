@@ -5,7 +5,7 @@ endif
 
 augroup format
     autocmd!
-    autocmd FileType markdown,vim,tex,sh,rust,lua
+    autocmd FileType markdown,tex,sh,rust,lua
         \ if do_format
             \ | execute 'au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry'
         \ | endif

@@ -5,7 +5,7 @@
 ##########################################
 
 # handle setup of workspace (both in case of single and double monitor)
-function setup_workspaces_monitor_polybar(){
+function setup_workspaces_monitor(){
 	other_monitor=$(xrandr -q | awk -v primary_monitor="$primary_monitor" '{if($2=="connected" && $1!=primary_monitor) {print $1}}' )
 
     if [ ! -z "${primary_resolution}"  ]; then
@@ -18,7 +18,7 @@ function setup_workspaces_monitor_polybar(){
 		echo "Single monitor"
 
         xrandr --output "${primary_monitor}" --primary "${primary_monitor_mode[@]}"
-		bspc monitor -d I II III IV V VI VII VIII IX X
+		bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 	else
 		echo "Double monitor"
 
@@ -37,8 +37,8 @@ function setup_workspaces_monitor_polybar(){
 		    xrandr --output "${primary_monitor}" --primary "${primary_monitor_mode[@]}" --output "${other_monitor}" "${other_monitor_mode[@]}" --right-of "${primary_monitor}"
         fi
 
-        bspc monitor "${primary_monitor}" -d I II III IV V VI VII VIII IX
-		bspc monitor "${other_monitor}" -d X
+        bspc monitor "${primary_monitor}" -d 1 2 3 4 5 6 7 8 9
+		bspc monitor "${other_monitor}" -d 10
         
 	fi
 }
@@ -62,12 +62,12 @@ fetch_colors () {
 # load configuration
 source "$HOME"/.config/bspwm/bspwm.conf
 
-setup_workspaces_monitor_polybar
+setup_workspaces_monitor
 
 /usr/lib/pam_kwallet_init &
 sxhkd &
 picom &
-feh --bg-fill Pictures/Wallpapers/anime/k1inmweviame.jpg
+feh --bg-fill Pictures/Wallpapers/drawings/home_comfy_brown.jpg
 wal --theme base16-gruvbox-hard
 # set keymap options
 setxkbmap -layout it -variant us &
@@ -82,26 +82,28 @@ enable_fn
 fetch_colors
 
 #bspc config normal_border_color "$BLACK"
-bspc config focused_border_color "$GREEN"
+bspc config focused_border_color "$WHITE"
 #bspc config active_border_color "$BLUE"
 bspc config urgent_border_color "$RED"
 bspc config presel_feedback_color "$WHITE"
 
 bspc config border_width             1
-bspc config top_padding              22
+bspc config top_padding              45
 bspc config bottom_padding           0
 bspc config left_padding             0
 bspc config right_padding            0
 bspc config window_gap               9
+bspc config border_radius            10
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config paddingless_monocle  true
-# this should correspond to the height of the bar in order not to show it in monocle
-bspc config top_monocle_padding  -28
+# this should correspond to the top padding (occupied by the bar) in order not
+# to show it in monocle
+bspc config top_monocle_padding  -45
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Gimp desktop='^7' state=floating follow=on
 bspc rule -a mplayer2 state=floating
 bspc rule -a Screenkey manage=off
 bspc rule -a feh state=floating
