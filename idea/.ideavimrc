@@ -1,0 +1,61 @@
+set relativenumber
+set number
+set ignorecase
+set smartcase
+set incsearch
+
+let set_leader=" "
+
+" Navigation
+nmap <C-o> :action Back<cr>
+nmap <C-i> :action Forward<cr>
+nmap gd :action GotoDeclaration<cr>
+nmap gr :action FindUsages<cr>
+nmap <space>f :action GotoFile<cr>
+nmap <space>w :action FindInPath<cr>
+nmap <space>c :action GotoClass<cr>
+nmap gs :action GotoSymbol<cr>
+
+nmap <space>et :action FileStructurePopup<cr>
+nmap <space>M :action ActivateStructureToolWindow<cr>
+nmap <space>d :action ShowErrorDescription<cr>
+nmap <space>i :action GotoImplementation<cr>
+nmap <space>t :action GotoTest<cr>
+nmap <space>I :action SelectIn<cr>
+" nmap <space>e :action RecentFiles<cr>
+nmap <space>p :action JumpToLastWindow<cr>
+nmap <space>b :action ShowBookmarks<cr>
+nmap <space>n :action Inline<cr>
+nmap <space>rc :action RunClass<cr>
+" go to class (homemade)
+nnoremap <space>gc /\\<class\><cr>w
+
+nmap <space>cn :action RenameElement<cr>
+nmap <space>ct :action ChangeTypeSignature<cr>
+
+" git blame
+nmap gb :action Annotate<cr>
+
+" window-level movement
+nnoremap zh <C-w>h
+nnoremap zj <C-w>j
+nnoremap zk <C-w>k
+nnoremap zl <C-w>l
+
+" tests
+nmap <space>rr :action RerunTests<Cr>
+nmap <space>q :q<Cr>
+
+" formatting
+nmap <space>c<space> :action CommentByLineComment<cr>
+nmap = :action ReformatCode<Cr>
+
+nmap <space>a :action ActivatePaletteToolWindow<Cr>
+" nmap <leader>L :action RecentLocations<cr>
+" nmap <leader>m :action FileStructurePopup<cr>
+
+" copy-pasting from main clipboard
+nnoremap <C-p> "+p
+sethandler <C-y> a:vim
+nnoremap <C-y> "+y
+

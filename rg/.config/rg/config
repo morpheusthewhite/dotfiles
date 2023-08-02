@@ -1,0 +1,7 @@
+# make the matches case insensitive
+-i
+
+# show one line before and after the match
+# -B=1
+# -A=1
+

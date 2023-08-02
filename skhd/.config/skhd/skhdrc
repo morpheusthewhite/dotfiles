@@ -1,0 +1,234 @@
+#  NOTE(koekeishiya): A list of all built-in modifier and literal keywords can
+#                     be found at https://github.com/koekeishiya/skhd/issues/1
+#
+#                     A hotkey is written according to the following rules:
+#
+#                       hotkey       = <mode> '<' <action> | <action>
+#
+#                       mode         = 'name of mode' | <mode> ',' <mode>
+#
+#                       action       = <keysym> '[' <proc_map_lst> ']' | <keysym> '->' '[' <proc_map_lst> ']'
+#                                      <keysym> ':' <command>          | <keysym> '->' ':' <command>
+#                                      <keysym> ';' <mode>             | <keysym> '->' ';' <mode>
+#
+#                       keysym       = <mod> '-' <key> | <key>
+#
+#                       mod          = 'modifier keyword' | <mod> '+' <mod>
+#
+#                       key          = <literal> | <keycode>
+#
+#                       literal      = 'single letter or built-in keyword'
+#
+#                       keycode      = 'apple keyboard kVK_<Key> values (0x3C)'
+#
+#                       proc_map_lst = * <proc_map>
+#
+#                       proc_map     = <string> ':' <command> | <string>     '~' |
+#                                      '*'      ':' <command> | '*'          '~'
+#
+#                       string       = '"' 'sequence of characters' '"'
+#
+#                       command      = command is executed through '$SHELL -c' and
+#                                      follows valid shell syntax. if the $SHELL environment
+#                                      variable is not set, it will default to '/bin/bash'.
+#                                      when bash is used, the ';' delimeter can be specified
+#                                      to chain commands.
+#
+#                                      to allow a command to extend into multiple lines,
+#                                      prepend '\' at the end of the previous line.
+#
+#                                      an EOL character signifies the end of the bind.
+#
+#                       ->           = keypress is not consumed by skhd
+#
+#                       *            = matches every application not specified in <proc_map_lst>
+#
+#                       ~            = application is unbound and keypress is forwarded per usual, when specified in a <proc_map>
+#
+#  NOTE(koekeishiya): A mode is declared according to the following rules:
+#
+#                       mode_decl = '::' <name> '@' ':' <command> | '::' <name> ':' <command> |
+#                                   '::' <name> '@'               | '::' <name>
+#
+#                       name      = desired name for this mode,
+#
+#                       @         = capture keypresses regardless of being bound to an action
+#
+#                       command   = command is executed through '$SHELL -c' and
+#                                   follows valid shell syntax. if the $SHELL environment
+#                                   variable is not set, it will default to '/bin/bash'.
+#                                   when bash is used, the ';' delimeter can be specified
+#                                   to chain commands.
+#
+#                                   to allow a command to extend into multiple lines,
+#                                   prepend '\' at the end of the previous line.
+#
+#                                   an EOL character signifies the end of the bind.
+
+# add an on_enter command to the default mode
+# :: default : chunkc border::color 0xff775759
+#
+# defines a new mode 'test' with an on_enter command, that captures keypresses
+# :: test @ : chunkc border::color 0xff24ccaa
+#
+# from 'default' mode, activate mode 'test'
+# cmd - x ; test
+#
+# from 'test' mode, activate mode 'default'
+# test < cmd - x ; default
+#
+# launch a new terminal instance when in either 'default' or 'test' mode
+# default, test < cmd - return : open -na /Applications/Terminal.app
+
+# application specific bindings
+#
+# cmd - n [
+#     "kitty"       : echo "hello kitty"
+#     *             : echo "hello everyone"
+#     "qutebrowser" : echo "hello qutebrowser"
+#     "terminal"    ~
+#     "finder"      : false
+# ]
+
+# specify a file that should be included as an additional config-file.
+# treated as an absolutepath if the filename begins with '/' otherwise
+# the file is relative to the path of the config-file it was loaded from.
+#
+# .load "/Users/Koe/.config/partial_skhdrc"
+# .load "partial_skhdrc"
+
+# prevent skhd from monitoring events for specific applications.
+#
+# .blacklist [
+#    "kitty"
+#    "terminal"
+#    "qutebrowser"
+# ]
+
+# opens iTerm2
+# alt - return : "${HOME}"/.config/yabai/scripts/open_iterm2.sh
+
+# Show system statistics
+# fn + lalt - 1 : "${HOME}"/.config/yabai/scripts/show_cpu.sh
+# fn + lalt - 2 : "${HOME}"/.config/yabai/scripts/show_mem.sh
+# fn + lalt - 3 : "${HOME}"/.config/yabai/scripts/show_bat.sh
+# fn + lalt - 4 : "${HOME}"/.config/yabai/scripts/show_disk.sh
+# fn + lalt - 5 : "${HOME}"/.config/yabai/scripts/show_song.sh
+# source "${HOME}"/.config/skhd/yabai-libs.sh
+
+# Restart Yabai
+# lctrl + alt - r : \
+#     /usr/bin/env osascript <<< \
+#         "display notification \"Restarting Yabai\" with title \"Yabai\""; \
+#     launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+lctrl + alt - r : "skhd -r"
+
+# Close window
+alt - x : yabai -m window --close; \
+          yabai -m window --focus
+
+# Navigation
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# Moving windows
+shift + alt - h : yabai -m window --warp west
+shift + alt - j : yabai -m window --warp south
+shift + alt - k : yabai -m window --warp north
+shift + alt - l : yabai -m window --warp east
+
+# Focus spaces
+alt - tab : yabai -m space --focus recent
+alt - p : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-space-previous-safe
+alt - n : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-space-next-safe
+
+## traditional space focusing bindings
+# alt - 1 : yabai -m space --focus 1
+# alt - 2 : yabai -m space --focus 2
+# alt - 3 : yabai -m space --focus 3
+# alt - 4 : yabai -m space --focus 4
+# alt - 5 : yabai -m space --focus 5
+# alt - 6 : yabai -m space --focus 6
+# alt - 7 : yabai -m space --focus 7
+# alt - 8 : yabai -m space --focus 8
+
+## relative space focusing bindings
+alt - y : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 2 1
+alt - u : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 2 2
+alt - i : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 2 3
+alt - o : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 2 3
+
+alt - 6 : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 1 1
+alt - 7 : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 1 2
+alt - 8 : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 1 3
+alt - 9 : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 1 4
+
+# Focus monitors: Ctrl + Alt + [NUM]
+# ctrl + alt - 1  : yabai -m display --focus 1
+# ctrl + alt - 2  : yabai -m display --focus 2
+alt - 0x29 : yabai -m display --focus recent # 0x29 = ";"
+shift + alt - 0x29 : yabai -m window --display recent; yabai -m display --focus recent
+
+# focus most recent window
+# alt - u : yabai -m window --focus recent
+
+# Move focus container to workspace
+shift + alt - m : yabai -m window --space last; yabai -m space --focus last
+shift + alt - p : yabai -m window --space prev; yabai -m space --focus prev
+shift + alt - n : yabai -m window --space next; yabai -m space --focus next
+shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
+shift + alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
+shift + alt - 3 : yabai -m window --space 3; yabai -m space --focus 3
+shift + alt - 4 : yabai -m window --space 4; yabai -m space --focus 4
+shift + alt - 5 : yabai -m window --space 5; yabai -m space --focus 5
+shift + alt - 6 : yabai -m window --space 6; yabai -m space --focus 6
+shift + alt - 7 : yabai -m window --space 7; yabai -m space --focus 7
+shift + alt - 8 : yabai -m window --space 8; yabai -m space --focus 8
+
+# Resize windows
+# Increase size
+cmd + alt - h : yabai -m window --resize left:-50:0 
+cmd + alt - j : yabai -m window --resize bottom:0:50
+cmd + alt - k : yabai -m window --resize top:0:-50
+cmd + alt - l : yabai -m window --resize right:50:0
+# Decrease size
+lshift + cmd + alt - h : yabai -m window --resize right:-50:0 
+lshift + cmd + alt - j : yabai -m window --resize top:0:50
+lshift + cmd + alt - k : yabai -m window --resize bottom:0:-50
+lshift + cmd + alt - l : yabai -m window --resize left:50:0
+
+# Equalize size of windows
+alt - e : yabai -m space --balance
+
+# Enable / Disable gaps in current workspace
+# lctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
+
+# Rotate windows clockwise and anticlockwise
+alt - r         : yabai -m space --rotate 270
+shift + alt - r : yabai -m space --rotate 90
+
+# Rotate on X and Y Axis
+shift + alt - x : yabai -m space --mirror x-axis
+shift + alt - y : yabai -m space --mirror y-axis
+
+# Set insertion point for focused container
+# shift + lctrl + alt - h : yabai -m window --insert west
+# shift + lctrl + alt - j : yabai -m window --insert south
+# shift + lctrl + alt - k : yabai -m window --insert north
+# shift + lctrl + alt - l : yabai -m window --insert east
+
+# Float / Unfloat window
+alt - t : yabai -m window --toggle float
+    # ; \
+    # yabai -m window --toggle border
+
+# Make window native fullscreen
+alt - m : yabai -m window --toggle zoom-fullscreen # not working for some reasons
+alt - f : yabai -m window --toggle native-fullscreen
+
+# create and destroy spaces
+lctrl + alt - i : yabai -m space --create
+lctrl + alt - o : yabai -m space --destroy
+
