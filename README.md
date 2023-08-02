@@ -1,6 +1,12 @@
 # dotfiles
 
-Just morpheusthewhite's dotfiles
+Just morpheusthewhite's dotfiles.
+
+## How to install
+
+```
+stow --target=~ */
+```
 
 ## Current setup
 
