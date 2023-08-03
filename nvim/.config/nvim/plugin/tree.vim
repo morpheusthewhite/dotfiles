@@ -7,13 +7,15 @@ nnoremap <Leader>el :NvimTreeFindFile<CR>
 " default shows no icon by default
 lua<<EOF
 require'nvim-tree'.setup {
-  disable_netrw       = true,
-  hijack_netrw        = true,
-  open_on_setup       = false,
-  ignore_ft_on_setup  = {},
-  open_on_tab         = false,
-  hijack_cursor       = false,
-  update_cwd          = false,
+  disable_netrw      = true,
+  hijack_netrw       = true,
+  open_on_tab        = false,
+  hijack_cursor      = true,
+  update_cwd         = false,
+  hijack_directories = {
+    enable = true,
+    auto_open = true,
+  },
   diagnostics = {
     enable = false,
     icons = {
