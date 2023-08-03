@@ -1,6 +1,5 @@
-
 " Enable folding with -
-nnoremap - za
+" nnoremap - za
 
 " run current file with python
 nnoremap <Leader>r :! python <C-R>%<CR>

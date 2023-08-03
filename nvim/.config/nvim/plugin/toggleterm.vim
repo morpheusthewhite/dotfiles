@@ -37,3 +37,5 @@ require("toggleterm").setup{
   }
 }
 EOF
+
+" tnoremap <C-e> <C-\><C-n>

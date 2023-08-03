@@ -1,6 +1,6 @@
 [user]
-	name = Yoyo Labs Team
-	email = dev@yoyolabs.io
+	name = ###NAME###
+	email = ###EMAIL###
 [core]
 	editor = nvim
 	excludesfile = /Users/francesco/.config/git/.gitignore

@@ -1,6 +1,6 @@
 lua << EOF
-require("nvim-lsp-installer").setup { automatic_installation = true }
-servers = { "jdtls", "jedi_language_server", "bashls", "terraformls", "tflint" } 
+require("mason").setup()
+require("mason-lspconfig").setup()
 
 -- Use an on_attach function to only map the following keys 
 -- after the language server attaches to the current buffer
@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<Leader>cn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<Leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', '<Leader>m', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+    -- buf_set_keymap('n', '<Leader>m', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', '<Leader>lr', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
@@ -43,16 +43,19 @@ local on_attach = function(client, bufnr)
     })
 end
 
-for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{on_attach=on_attach}
-end
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
--- require'lspinstall'.post_install_hook = function ()
---     setup_servers() -- reload installed servers
---     vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
--- end
-
+require("mason-lspconfig").setup_handlers {
+    -- The first entry (without a key) will be the default handler
+    -- and will be called for each installed server that doesn't have
+    -- a dedicated handler.
+    function (server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup {on_attach=on_attach}
+    end,
+    -- Next, you can provide a dedicated handler for specific servers.
+    -- For example, a handler override for the `rust_analyzer`:
+    -- ["rust_analyzer"] = function ()
+    --     require("rust-tools").setup {}
+    -- end
+}
 EOF
 
 " Use completion-nvim in every buffer
@@ -66,49 +69,49 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " java lsp, i.e. nvim-jdtls
-lua << EOF
--- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
-
--- data directory setup
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace_dir = '/Users/francesco/.cache/jdtls' .. project_name
-
----- UNCOMMENT FOR JAVA SUPPORT
--- local config = {
---   -- The command that starts the language server
---   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
---   cmd = {
---     'java', -- or '/path/to/java11_or_newer/bin/java'
---     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
---     '-Dosgi.bundles.defaultStartLevel=4',
---     '-Declipse.product=org.eclipse.jdt.ls.core.product',
---     '-Dlog.protocol=true',
---     '-Dlog.level=ALL',
---     '-Xms1g',
---     '--add-modules=ALL-SYSTEM',
---     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
---     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
---     '-jar', '/Users/francesco/.local/share/java/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
---     '-configuration', '/Users/francesco/.local/share/java/config_mac',
---     '-data', workspace_dir
---   },
--- 
---   -- 💀
---   -- This is the default if not provided, you can remove it. Or adjust as needed.
---   -- One dedicated LSP server & client will be started per unique root_dir
---   root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
--- 
---   -- Here you can configure eclipse.jdt.ls specific settings
---   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
---   -- for a list of options
---   settings = {
---     java = {
---     }
---   }
--- }
--- -- This starts a new client & server,
--- -- or attaches to an existing client & server depending on the `root_dir`.
--- require('jdtls').start_or_attach(config)
-
-EOF
+" lua << EOF
+" -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
+"
+" -- data directory setup
+" local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+" local workspace_dir = '/Users/francesco/.cache/jdtls' .. project_name
+"
+" ---- UNCOMMENT FOR JAVA SUPPORT
+" -- local config = {
+" --   -- The command that starts the language server
+" --   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
+" --   cmd = {
+" --     'java', -- or '/path/to/java11_or_newer/bin/java'
+" --     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+" --     '-Dosgi.bundles.defaultStartLevel=4',
+" --     '-Declipse.product=org.eclipse.jdt.ls.core.product',
+" --     '-Dlog.protocol=true',
+" --     '-Dlog.level=ALL',
+" --     '-Xms1g',
+" --     '--add-modules=ALL-SYSTEM',
+" --     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
+" --     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+" --     '-jar', '/Users/francesco/.local/share/java/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+" --     '-configuration', '/Users/francesco/.local/share/java/config_mac',
+" --     '-data', workspace_dir
+" --   },
+" --
+" --   -- 💀
+" --   -- This is the default if not provided, you can remove it. Or adjust as needed.
+" --   -- One dedicated LSP server & client will be started per unique root_dir
+" --   root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
+" --
+" --   -- Here you can configure eclipse.jdt.ls specific settings
+" --   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+" --   -- for a list of options
+" --   settings = {
+" --     java = {
+" --     }
+" --   }
+" -- }
+" -- -- This starts a new client & server,
+" -- -- or attaches to an existing client & server depending on the `root_dir`.
+" -- require('jdtls').start_or_attach(config)
+"
+" EOF
 

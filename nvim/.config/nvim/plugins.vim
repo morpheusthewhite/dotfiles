@@ -58,9 +58,9 @@ Plug 'neomake/neomake'
 Plug 'vim-scripts/indentpython.vim'
 
 " autocompletion
+Plug 'williamboman/mason.nvim', { 'branch': 'main' }
+Plug 'williamboman/mason-lspconfig.nvim', { 'branch': 'main' }
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
-" Plug 'kabouzeid/nvim-lspinstall', { 'branch': 'main' }
 " Plug 'nvim-lua/completion-nvim'
 Plug 'hrsh7th/nvim-compe'
 " function signatures
@@ -136,6 +136,8 @@ Plug 'unblevable/quick-scope'
 " Plug 'akinsho/nvim-bufferline.lua'
 " Plug 'romgrk/barbar.nvim'
 
-Plug 'dracula/vim', { 'as': 'dracula' }
+" debugging
+Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'
 call plug#end()
 
