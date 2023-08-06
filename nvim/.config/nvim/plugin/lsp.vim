@@ -114,4 +114,3 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " -- require('jdtls').start_or_attach(config)
 "
 " EOF
-

@@ -65,6 +65,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 " function signatures
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " java lsp support and configuration
 Plug 'mfussenegger/nvim-jdtls'
