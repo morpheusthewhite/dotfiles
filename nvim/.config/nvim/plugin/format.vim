@@ -22,3 +22,5 @@
 " " invoke automatic formatting from vim-autoformat
 " noremap <F3> :Autoformat<CR>
 
+autocmd Filetype hcl setlocal ts=2 sw=2 softtabstop=2 expandtab
+autocmd Filetype tf setlocal ts=2 sw=2 softtabstop=2 expandtab
