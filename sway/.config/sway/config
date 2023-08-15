@@ -234,6 +234,8 @@ bindswitch --reload --locked lid:on exec $suspend
     bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
     bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
     bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle
+    # screenshot 
+    bindsym Print exec --no-startup-id grim -g "$(slurp)" - | wl-copy
 
 #
 # Resizing containers:
@@ -264,19 +266,19 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+# bar {
+#     position top
+#
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+#
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
 
 include /etc/sway/config.d/*
 
@@ -284,3 +286,4 @@ include /etc/sway/config.d/*
 # Startup 
 #
 exec swaync
+exec waybar
