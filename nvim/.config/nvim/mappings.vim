@@ -46,8 +46,8 @@ vnoremap <C-p> "+p
 " vnoremap r <gv
 
 " faster replace in v mode
-vnoremap s "hy:%s/<C-r>h//gc<left><left><left>
-vnoremap S "hy:%s/<C-r>h/<C-r>h/gc<left><left><left>
+vnoremap s "hy:%s/\<<C-r>h\>//gc<left><left><left>
+vnoremap S "hy:%s/\<<C-r>h\>/<C-r>h/gc<left><left><left>
 
 " remove trailing whitespace
 nnoremap <Leader>tr :%s/\s\+$//e<CR>

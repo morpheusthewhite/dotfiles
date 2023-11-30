@@ -18,7 +18,7 @@ bindkey '^A' insert_sudo
 ### completion
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
+# complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 ### aliases
 
@@ -38,6 +38,9 @@ alias gdc="git diff --cached"
 alias gcam="git commit --amend --no-edit"
 alias gcame="git commit --amend"
 
+alias tf="terraform" 
+
+alias tg="terragrunt"
 alias tga="terragrunt apply"
 alias tgac="terragrunt apply -auto-approve"
 alias tgap="terragrunt run-all apply --terragrunt-parallelism 5"
@@ -45,12 +48,20 @@ alias tgaa="terragrunt apply -auto-approve > /dev/null &"
 alias tgc="rm -rf .terragrunt-cache"
 alias tfmt="terraform fmt -recursive; terragrunt hclfmt"
 
+alias kctx="kubectx"
+alias kns="kubens"
+alias kd="kubectl describe"
+alias kg="kubectl get"
+
 alias rg="rg -B=1 -A=1"
+
+alias mktempenv="cd $(mktemp -d)"
 
 ### functions
 
 gro () {
     GIT_ROOT="$(git rev-parse --show-toplevel)"
+    echo "$GIT_ROOT"
     cd "$GIT_ROOT"
 }
 
@@ -83,4 +94,22 @@ get_report_dependencies() {
 copy(){
     file="$1"
     cat "${file}" | pbcopy
+}
+
+mysql_command() {
+    # Get the database URL from the command-line argument
+    DB_URL="$1"
+
+    # Parse the database URL
+    DB_USER=$(echo "$DB_URL" | sed -n 's/mysql:\/\/\([^:]*\):[^@]*@.*/\1/p')
+    DB_PASSWORD=$(echo "$DB_URL" | sed -n 's/mysql:\/\/[^:]*:\([^@]*\)@.*/\1/p')
+    DB_HOST=$(echo "$DB_URL" | sed -n 's/mysql:\/\/[^:]*:[^@]*@\([^:]*\):[^/]*.*/\1/p')
+    DB_PORT=$(echo "$DB_URL" | sed -n 's/mysql:\/\/[^:]*:[^@]*@[^:]*:\([0-9]*\).*/\1/p')
+    DB_NAME=$(echo "$DB_URL" | sed -n 's/mysql:\/\/[^:]*:[^@]*@[^:]*:[0-9]*\/\(.*\)/\1/p')
+
+    # Construct the MySQL command
+    MYSQL_CMD="mysql -h $DB_HOST -P $DB_PORT -u $DB_USER -p$DB_PASSWORD $DB_NAME"
+
+    # Print the MySQL command
+    echo "$MYSQL_CMD"
 }

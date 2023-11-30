@@ -109,8 +109,8 @@ Plug 'luochen1990/rainbow'
 " brackets completion
 Plug 'Raimondi/delimitMate'
 
-" pydoc generation
-Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+" docs generation
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 " " todo management
 Plug 'jceb/vim-orgmode'

@@ -1,4 +1,2 @@
-let g:pydocstring_formatter = 'google'
-
-nnoremap <Leader>dp :Pydocstring<CR>
+let g:doge_doc_standard_python = 'google'
 
