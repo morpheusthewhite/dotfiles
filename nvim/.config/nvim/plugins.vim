@@ -47,7 +47,7 @@ Plug 'rktjmp/lush.nvim', { 'branch': 'main' }
 Plug 'npxbr/gruvbox.nvim', { 'branch': 'main' }
 
 " syntax highlighting
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake' " replaced by mason
 " Plug 'vim-syntastic/syntastic'
 " Plug 'nvie/vim-flake8'
 
