@@ -19,17 +19,19 @@ nmap gs :action GotoSymbol<cr>
 nmap <space>et :action FileStructurePopup<cr>
 nmap <space>M :action ActivateStructureToolWindow<cr>
 nmap <space>d :action ShowErrorDescription<cr>
-nmap <space>i :action GotoImplementation<cr>
 nmap <space>t :action GotoTest<cr>
 nmap <space>I :action SelectIn<cr>
 " nmap <space>e :action RecentFiles<cr>
 nmap <space>p :action JumpToLastWindow<cr>
 nmap <space>b :action ShowBookmarks<cr>
-nmap <space>n :action Inline<cr>
 nmap <space>rc :action RunClass<cr>
 " go to class (homemade)
 nnoremap <space>gc /\\<class\><cr>w
+nmap <space>gI :action GotoImplementation<cr>
 
+" refactoring
+nmap <space>m :action Move<cr>
+nmap <space>i :action Inline<cr>
 nmap <space>cn :action RenameElement<cr>
 nmap <space>ct :action ChangeTypeSignature<cr>
 
