@@ -1,2 +1,6 @@
 .envrc
 .idea
+.project
+.settings
+.classpath
+.factorypath

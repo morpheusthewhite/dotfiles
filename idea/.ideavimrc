@@ -4,6 +4,11 @@ set ignorecase
 set smartcase
 set incsearch
 
+" Plugins
+set NERDTree
+set highlightedyank
+set quickscope
+
 let set_leader=" "
 
 " Navigation
@@ -11,12 +16,14 @@ nmap <C-o> :action Back<cr>
 nmap <C-i> :action Forward<cr>
 nmap gd :action GotoDeclaration<cr>
 nmap gr :action FindUsages<cr>
-nmap <space>f :action GotoFile<cr>
-nmap <space>w :action FindInPath<cr>
+nmap <space>ef :action GotoFile<cr>
+nmap <space>ew :action FindInPath<cr>
 nmap <space>c :action GotoClass<cr>
 nmap gs :action GotoSymbol<cr>
+nmap <space>ea :action SearchEverywhere<cr>
 
-nmap <space>et :action FileStructurePopup<cr>
+nmap <space>et :action ActivateProjectToolWindow<cr>
+nmap <space>el :NERDTreeFind<cr>
 nmap <space>M :action ActivateStructureToolWindow<cr>
 nmap <space>d :action ShowErrorDescription<cr>
 nmap <space>t :action GotoTest<cr>
@@ -34,6 +41,7 @@ nmap <space>m :action Move<cr>
 nmap <space>i :action Inline<cr>
 nmap <space>cn :action RenameElement<cr>
 nmap <space>ct :action ChangeTypeSignature<cr>
+nmap <space>cs :action ChangeSignature<cr>
 
 " git blame
 nmap gb :action Annotate<cr>
@@ -45,8 +53,19 @@ nnoremap zk <C-w>k
 nnoremap zl <C-w>l
 
 " tests
-nmap <space>rr :action RerunTests<Cr>
+nmap <space>rr :action Rerun<Cr>
 nmap <space>q :q<Cr>
+
+" debugging
+nmap <space>br :action ToggleLineBreakpoint<Cr>
+nmap <space>dc :action DebugClass<Cr>
+
+" folding
+nmap zM :action CollapseAllRegions<Cr>
+nmap zC :action CollapseRegion<Cr>
+nmap za :action ExpandRegion<Cr>
+nmap zA :action ExpandRegionRecursively<Cr>
+nmap zR :action ExpandAllRegions<Cr>
 
 " formatting
 nmap <space>c<space> :action CommentByLineComment<cr>
@@ -58,6 +77,10 @@ nmap <space>a :action ActivatePaletteToolWindow<Cr>
 
 " copy-pasting from main clipboard
 nnoremap <C-p> "+p
+vnoremap <C-p> "+p
 sethandler <C-y> a:vim
 nnoremap <C-y> "+y
+vnoremap <C-y> "+y
 
+" terminal
+nmap <C-\> :action ActivateTerminalToolWindow<cr>

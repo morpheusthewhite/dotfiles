@@ -1,4 +1,3 @@
-source yabai-libs.sh
 # the scripting-addition must be loaded manually if
 # you are running yabai on macOS Big Sur. Uncomment
 # the following line to have the injection performed
@@ -10,7 +9,7 @@ sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # global settings
-yabai -m config external_bar                 all:24:0
+yabai -m config external_bar                 all:0:0
 yabai -m config mouse_follows_focus          off
 yabai -m config focus_follows_mouse          off
 yabai -m config window_origin_display        default
@@ -35,18 +34,14 @@ yabai -m config mouse_drop_action            swap
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  12
-yabai -m config bottom_padding               12
-yabai -m config left_padding                 12
-yabai -m config right_padding                12
-yabai -m config window_gap                   06
+yabai -m config top_padding                  02
+yabai -m config bottom_padding               02
+yabai -m config left_padding                 02
+yabai -m config right_padding                02
+yabai -m config window_gap                   01
 
 ## floating apps
-floating_apps='^(System Preferences|Mail)$'
-yabai -m rule --add app="${floating_apps}" manage=off border=off label="float"
-
-# float all JetBrains apps
-yabai -m rule --add app='^(IntelliJ IDEA|WebStorm|CLion)$' manage=off border=off sticky=on
+yabai -m rule --add app='^(IntelliJ IDEA|WebStorm|CLion|System Preferences|Mail|Webex|Cisco Webex Meetings)$' manage=off label="float"
 
 # add a signal that floats a window created by these apps when it's the only window
 yabai -m signal --add event=window_created app="${apps}" action='/Users/francesco/.local/share/yabaix/float_subwindows.sh'

@@ -81,7 +81,7 @@ fi
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl vi-mode autojump direnv fzf helm terraform terragrunt kubectx fzf-zsh-plugin)
+plugins=(git kubectl vi-mode autojump direnv fzf helm terraform terragrunt kubectx fzf-zsh-plugin colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 

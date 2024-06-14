@@ -77,7 +77,7 @@ lua << EOF
 -- local workspace_dir = '/Users/francesco/.cache/jdtls' .. project_name
 
 -- UNCOMMENT FOR JAVA SUPPORT
-local config = {
+-- local config = {
   -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   -- cmd = {
@@ -114,7 +114,7 @@ local config = {
 --         }
 --     }
 --   }
-}
+-- }
 -- -- This starts a new client & server,
 -- -- or attaches to an existing client & server depending on the `root_dir`.
 -- require('jdtls').start_or_attach(config)
