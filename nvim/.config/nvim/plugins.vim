@@ -62,13 +62,23 @@ Plug 'williamboman/mason.nvim', { 'branch': 'main' }
 Plug 'williamboman/mason-lspconfig.nvim', { 'branch': 'main' }
 Plug 'neovim/nvim-lspconfig'
 " Plug 'nvim-lua/completion-nvim'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'petertriho/cmp-git'
 " function signatures
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " java lsp support and configuration
 Plug 'mfussenegger/nvim-jdtls'
+
+" go development
+Plug 'ray-x/go.nvim'
+Plug 'ray-x/guihua.lua' " floating window support
 
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 
@@ -138,7 +148,7 @@ Plug 'unblevable/quick-scope'
 " Plug 'romgrk/barbar.nvim'
 
 " debugging
-Plug 'puremourning/vimspector'
+"Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
 call plug#end()
 

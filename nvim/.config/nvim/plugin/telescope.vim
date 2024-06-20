@@ -41,3 +41,6 @@ nnoremap <leader>ev :lua require('local.telescope').search_dotfiles()<CR>
 " git bindings
 nnoremap <Leader>gb <cmd>Telescope git_branches<cr>
 nnoremap <Leader>gl <cmd>Telescope git_commits<cr>
+
+" lsp
+nnoremap gr <cmd> Telescope lsp_references<cr>
