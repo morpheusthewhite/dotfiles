@@ -155,15 +155,15 @@ alt - n : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-space-next-safe
 # alt - 8 : yabai -m space --focus 8
 
 ## relative space focusing bindings
-alt - y : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 2 1
-alt - u : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 2 2
-alt - i : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 2 3
-alt - o : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 2 3
+lalt - y : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 2 1
+lalt - u : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 2 2
+lalt - i : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 2 3
+lalt - o : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 2 3
 
-alt - 6 : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 1 1
-alt - 7 : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 1 2
-alt - 8 : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 1 3
-alt - 9 : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 1 4
+lalt - 6 : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 1 1
+lalt - 7 : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 1 2
+lalt - 8 : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 1 3
+lalt - 9 : python3 "${HOME}"/.local/share/yabaix/yabaix.py focus-display-space 1 4
 
 # Focus monitors: Ctrl + Alt + [NUM]
 # ctrl + alt - 1  : yabai -m display --focus 1
@@ -200,7 +200,7 @@ lshift + cmd + alt - k : yabai -m window --resize bottom:0:-50
 lshift + cmd + alt - l : yabai -m window --resize left:50:0
 
 # Equalize size of windows
-alt - e : yabai -m space --balance
+lalt - e : yabai -m space --balance
 
 # Enable / Disable gaps in current workspace
 # lctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
@@ -229,6 +229,6 @@ alt - m : yabai -m window --toggle zoom-fullscreen # not working for some reason
 alt - f : yabai -m window --toggle native-fullscreen
 
 # create and destroy spaces
-lctrl + alt - i : yabai -m space --create
-lctrl + alt - o : yabai -m space --destroy
+lctrl + lalt - i : yabai -m space --create
+lctrl + lalt - o : yabai -m space --destroy
 
