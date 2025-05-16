@@ -35,6 +35,7 @@ nnoremap <leader>eh <cmd>Telescope help_tags<cr>
 nnoremap <leader>ec <cmd>Telescope commands<cr>
 nnoremap <leader>es <cmd>Telescope lsp_dynamic_workspace_symbols<cr>
 nnoremap <leader>ee <cmd>Telescope grep_string<cr>
+nnoremap <leader>ed <cmd>Telescope diagnostics<cr>
 
 nnoremap <leader>ev :lua require('local.telescope').search_dotfiles()<CR>
 
@@ -44,3 +45,4 @@ nnoremap <Leader>gl <cmd>Telescope git_commits<cr>
 
 " lsp
 nnoremap gr <cmd> Telescope lsp_references<cr>
+nnoremap gi <cmd> Telescope lsp_implementations<cr>

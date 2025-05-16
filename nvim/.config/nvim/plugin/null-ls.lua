@@ -1,10 +1,12 @@
-local null_ls = require("null-ls")
+local none_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-null_ls.setup({
+none_ls.setup({
     sources = {
-        null_ls.builtins.diagnostics.flake8,
-        null_ls.builtins.formatting.black
+        -- none_ls.builtins.formatting.clang_format
+        -- .with({
+        --     extra_args = { "--style=file:~/.clang-format" },
+        -- })
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then

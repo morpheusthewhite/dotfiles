@@ -71,10 +71,22 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'petertriho/cmp-git'
 " function signatures
 Plug 'ray-x/lsp_signature.nvim'
-Plug 'jose-elias-alvarez/null-ls.nvim'
+" custom lsp
+Plug 'nvimtools/none-ls.nvim'
+" diagnostics
+" Plug 'folke/trouble.nvim'
 
 " java lsp support and configuration
-Plug 'mfussenegger/nvim-jdtls'
+
+Plug 'nvim-java/lua-async-await'
+Plug 'nvim-java/nvim-java-refactor'
+Plug 'nvim-java/nvim-java-core'
+Plug 'nvim-java/nvim-java-test'
+Plug 'nvim-java/nvim-java-dap'
+Plug 'nvim-java/nvim-java'
+Plug 'JavaHello/spring-boot.nvim'
+Plug 'nvim-java/nvim-java'
+Plug 'MunifTanjim/nui.nvim',
 
 " go development
 Plug 'ray-x/go.nvim'
@@ -147,8 +159,17 @@ Plug 'unblevable/quick-scope'
 " Plug 'akinsho/nvim-bufferline.lua'
 " Plug 'romgrk/barbar.nvim'
 
-" debugging
+" debugging (vimspector)
 "Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
+
+" debugging (nvim-dap)
+Plug 'mfussenegger/nvim-dap'
+Plug 'nvim-neotest/nvim-nio'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'theHamsta/nvim-dap-virtual-text'
+
+Plug 'tpope/vim-repeat'
+
 call plug#end()
 

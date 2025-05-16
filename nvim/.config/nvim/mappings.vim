@@ -1,9 +1,6 @@
 " Enable folding with -
 " nnoremap - za
 
-" run current file with python
-nnoremap <Leader>r :! python <C-R>%<CR>
-
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 nnoremap <Leader>tt :terminal<CR>
 nnoremap <Leader>tv :vsplit<CR>:terminal<CR>

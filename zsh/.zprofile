@@ -25,6 +25,8 @@ alias ls="exa"
 alias l="exa -al"
 alias la="exa -alh"
 
+alias cat="bat"
+
 alias vim=nvim
 alias vi=nvim
 alias v=nvim
@@ -36,11 +38,14 @@ alias gspuk="git stash push -u -k"
 alias gdc="git diff --cached"
 alias gcam="git commit --amend --no-edit"
 alias gcame="git commit --amend"
+alias grr="git reset --hard @{u}"
 
 alias tf="terraform" 
 
 alias tg="terragrunt"
 alias tga="terragrunt apply"
+alias tgd="terragrunt destroy"
+alias tgda="terragrunt destroy -auto-approve > /dev/null &"
 alias tgac="terragrunt apply -auto-approve"
 alias tgap="terragrunt run-all apply --terragrunt-parallelism 15"
 alias tgaa="terragrunt apply -auto-approve > /dev/null &"
@@ -55,6 +60,12 @@ alias kg="kubectl get"
 alias rg="rg -B=1 -A=1"
 
 alias mktempenv="cd $(mktemp -d)"
+
+alias gwb="./gradlew build"
+alias gwt="./gradlew test"
+alias gwit="./gradlew integrationTest"
+alias gwc="./gradlew check"
+alias gwcc="./gradlew clean check"
 
 ### functions
 

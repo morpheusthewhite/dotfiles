@@ -1,5 +1,10 @@
 lua << EOF
-require("mason").setup()
+require("mason").setup({
+	registries = {
+		"github:nvim-java/mason-registry",
+		"github:mason-org/mason-registry",
+	},
+})
 require("mason-lspconfig").setup()
 
 -- Use an on_attach function to only map the following keys 
@@ -18,7 +23,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    -- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     buf_set_keymap('n', '<Leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     buf_set_keymap('n', '<Leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
@@ -31,7 +36,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', '<Leader>lr', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-    buf_set_keymap("n", "<Leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    buf_set_keymap("n", "<Leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
     -- signature
     require "lsp_signature".on_attach({
@@ -49,6 +54,14 @@ end
 
 -- Set up nvim-cmp.
 local cmp = require('cmp')
+
+local has_words_before = function()
+  if vim.bo[0].buftype == 'prompt' then
+    return false
+  end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+end
 
 cmp.setup({
   snippet = {
@@ -71,6 +84,24 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<Tab>'] = function(fallback)
+      if not cmp.select_next_item() then
+        if vim.bo.buftype ~= 'prompt' and has_words_before() then
+          cmp.complete()
+        else
+          fallback()
+        end
+      end
+    end,
+    ['<S-Tab>'] = function(fallback)
+      if not cmp.select_prev_item() then
+        if vim.bo.buftype ~= 'prompt' and has_words_before() then
+          cmp.complete()
+        else
+          fallback()
+        end
+      end
+    end,
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -115,14 +146,22 @@ cmp.setup.cmdline(':', {
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled (done below).
--- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
---  capabilities = capabilities
--- }
 
 -- -------------------- --
 -- END NVIM-CMP SECTION --
 -- -------------------- --
+
+-- set up nvim-java
+require('java').setup({
+    jdk = {
+		auto_install = false,
+	}
+})
+
+-- File types that signify a Java project's root directory. This will be
+-- used by eclipse to determine what constitutes a workspace
+-- local root_markers = {'gradlew', 'mvnw', '.git'}
+-- local root_dir = require('jdtls.setup').find_root(root_markers)
 
 require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler
@@ -132,10 +171,42 @@ require("mason-lspconfig").setup_handlers {
         require("lspconfig")[server_name].setup {on_attach=on_attach, capabilities=capabilities}
     end,
     -- Next, you can provide a dedicated handler for specific servers.
-    -- For example, a handler override for the `rust_analyzer`:
-    -- ["rust_analyzer"] = function ()
-    --     require("rust-tools").setup {}
-    -- end
+    jdtls = function ()
+        require("lspconfig").jdtls.setup({
+            root_dir = root_dir,
+            on_attach = on_attach,
+            capabilities = capabilities,
+            settings = {
+                java = {
+                    format = {
+                        enabled = true,
+                        settings = {
+                            url = "/Users/francesco/Yoyo/styleguide/YoyoLabsJava.xml",
+                        },
+                    },
+                    project = {
+                        referencedLibraries = {
+                            "lib/**/*.jar",
+                        },
+                        sourcePaths = {
+                            "src",
+                        },
+                        outputPath = "bin",
+                    },
+                    debug = {
+                        settings = {
+                            stepping = {
+                                skipClasses = {
+                                    "$JDK",
+                                    "$Libraries",
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        })
+    end
 }
 EOF
 
@@ -148,56 +219,3 @@ EOF
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" java lsp, i.e. nvim-jdtls
-lua << EOF
--- -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
---
--- -- data directory setup
--- local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
--- local workspace_dir = '/Users/francesco/.cache/jdtls' .. project_name
-
--- UNCOMMENT FOR JAVA SUPPORT
--- local config = {
-  -- The command that starts the language server
-  -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
-  -- cmd = {
-  --   'java', -- or '/path/to/java11_or_newer/bin/java'
-  --   '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-  --   '-Dosgi.bundles.defaultStartLevel=4',
-  --   '-Declipse.product=org.eclipse.jdt.ls.core.product',
-  --   '-Dlog.protocol=true',
-  --   '-Dlog.level=ALL',
-  --   '-Xms1g',
-  --   '--add-modules=ALL-SYSTEM',
-  --   '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-  --   '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-  --   '-jar', '/Users/francesco/.local/share/java/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
-  --   '-configuration', '/Users/francesco/.local/share/java/config_mac',
-  --   '-data', workspace_dir
-  -- },
-
-  -- 💀
-  -- This is the default if not provided, you can remove it. Or adjust as needed.
-  -- One dedicated LSP server & client will be started per unique root_dir
-  -- root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
-
---   -- Here you can configure eclipse.jdt.ls specific settings
---   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
---   -- for a list of options
---   settings = {
---     java = {
---         format = {
---             settings = {
---                 -- see https://github.com/mfussenegger/nvim-jdtls/issues/203
---                 -- url = '~/.jdtls/style.xml'
---             }
---         }
---     }
---   }
--- }
--- -- This starts a new client & server,
--- -- or attaches to an existing client & server depending on the `root_dir`.
--- require('jdtls').start_or_attach(config)
-
-EOF
