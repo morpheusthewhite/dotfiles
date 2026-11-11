@@ -4,3 +4,5 @@
 .settings
 .classpath
 .factorypath
+
+**/.claude/settings.local.json
