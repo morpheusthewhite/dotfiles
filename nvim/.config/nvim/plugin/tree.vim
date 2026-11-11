@@ -30,10 +30,6 @@ require'nvim-tree'.setup {
     update_cwd  = false,
     ignore_list = {".cache", "node_modules"}
   },
-  system_open = {
-    cmd  = nil,
-    args = {}
-  },
   filters = {
     git_ignored = false,
     dotfiles = false,

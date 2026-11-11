@@ -78,15 +78,14 @@ Plug 'nvimtools/none-ls.nvim'
 
 " java lsp support and configuration
 
-Plug 'nvim-java/lua-async-await'
-Plug 'nvim-java/nvim-java-refactor'
-Plug 'nvim-java/nvim-java-core'
-Plug 'nvim-java/nvim-java-test'
-Plug 'nvim-java/nvim-java-dap'
-Plug 'nvim-java/nvim-java'
-Plug 'JavaHello/spring-boot.nvim'
-Plug 'nvim-java/nvim-java'
-Plug 'MunifTanjim/nui.nvim',
+" Plug 'nvim-java/lua-async-await'
+" Plug 'nvim-java/nvim-java-refactor'
+" Plug 'nvim-java/nvim-java-core'
+" Plug 'nvim-java/nvim-java-test'
+" Plug 'nvim-java/nvim-java-dap'
+" Plug 'nvim-java/nvim-java'
+" Plug 'JavaHello/spring-boot.nvim'
+" Plug 'MunifTanjim/nui.nvim',
 
 " go development
 Plug 'ray-x/go.nvim'
@@ -144,10 +143,10 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'mbbill/undotree'
 
 " treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'main', 'do': ':TSUpdate'}
 
 " improved terminals
-Plug 'akinsho/nvim-toggleterm.lua'
+Plug 'akinsho/toggleterm.nvim'
 
 " icons everywhere
 Plug 'kyazdani42/nvim-web-devicons'   

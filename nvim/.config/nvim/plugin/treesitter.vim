@@ -1,25 +1,25 @@
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    ignore_install = { "haskell", "phpdoc" }, -- List of parsers to ignore installing
-    highlight = {
-        enable = true,              -- false will disable the whole extension
-        -- disable = { "c", "rust" },  -- list of language that will be disabled
-    },
-    incremental_selection = {
-        enable = true,
-        keymaps = {
-            init_selection = "gnn",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
-        },
-    },
---    indent = {
---        enable = true
---    }
-}
-EOF
+-- nvim-treesitter `main` branch: only manages parsers/queries. Highlighting is
+-- started per buffer with vim.treesitter.start(). Needs the `tree-sitter` CLI
+-- (brew install tree-sitter-cli) to compile parsers.
+local ok, ts = pcall(require, 'nvim-treesitter')
+if not ok then
+    return
+end
 
-" set foldmethod=expr
-" set foldexpr=nvim_treesitter#foldexpr()
+ts.setup {}
+
+-- Install anything missing (async, no-op when already installed)
+ts.install {
+    'bash', 'c', 'cpp', 'css', 'go', 'html', 'java', 'javascript', 'json',
+    'kotlin', 'latex', 'lua', 'markdown', 'markdown_inline', 'python',
+    'query', 'regex', 'rust', 'toml', 'typescript', 'vim', 'vimdoc', 'yaml',
+}
+
+vim.api.nvim_create_autocmd('FileType', {
+    callback = function(args)
+        -- silently skips filetypes without an installed parser
+        pcall(vim.treesitter.start, args.buf)
+    end,
+})
+EOF

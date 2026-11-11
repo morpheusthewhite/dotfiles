@@ -152,62 +152,64 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- -------------------- --
 
 -- set up nvim-java
-require('java').setup({
-    jdk = {
-		auto_install = false,
-	}
-})
+-- require('java').setup({
+--     jdk = {
+-- 		auto_install = false,
+-- 	}
+-- })
 
 -- File types that signify a Java project's root directory. This will be
 -- used by eclipse to determine what constitutes a workspace
 -- local root_markers = {'gradlew', 'mvnw', '.git'}
 -- local root_dir = require('jdtls.setup').find_root(root_markers)
 
-require("mason-lspconfig").setup_handlers {
+-- TODO: this returns setup_handlers is nil. It seems that mason-lspconfig sets up servers automatically
+--          so this is probably not needed anymore.
+-- require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler
     -- and will be called for each installed server that doesn't have
     -- a dedicated handler.
-    function (server_name) -- default handler (optional)
-        require("lspconfig")[server_name].setup {on_attach=on_attach, capabilities=capabilities}
-    end,
+--     function (server_name) -- default handler (optional)
+--         require("lspconfig")[server_name].setup {on_attach=on_attach, capabilities=capabilities}
+--     end,
     -- Next, you can provide a dedicated handler for specific servers.
-    jdtls = function ()
-        require("lspconfig").jdtls.setup({
-            root_dir = root_dir,
-            on_attach = on_attach,
-            capabilities = capabilities,
-            settings = {
-                java = {
-                    format = {
-                        enabled = true,
-                        settings = {
-                            url = "/Users/francesco/Yoyo/styleguide/YoyoLabsJava.xml",
-                        },
-                    },
-                    project = {
-                        referencedLibraries = {
-                            "lib/**/*.jar",
-                        },
-                        sourcePaths = {
-                            "src",
-                        },
-                        outputPath = "bin",
-                    },
-                    debug = {
-                        settings = {
-                            stepping = {
-                                skipClasses = {
-                                    "$JDK",
-                                    "$Libraries",
-                                },
-                            },
-                        },
-                    },
-                },
-            },
-        })
-    end
-}
+--     jdtls = function ()
+--         require("lspconfig").jdtls.setup({
+--             root_dir = root_dir,
+--             on_attach = on_attach,
+--             capabilities = capabilities,
+--             settings = {
+--                 java = {
+--                     format = {
+--                         enabled = true,
+--                         settings = {
+--                             url = "/Users/francesco/Yoyo/styleguide/YoyoLabsJava.xml",
+--                         },
+--                     },
+--                     project = {
+--                         referencedLibraries = {
+--                             "lib/**/*.jar",
+--                         },
+--                         sourcePaths = {
+--                             "src",
+--                         },
+--                         outputPath = "bin",
+--                     },
+--                     debug = {
+--                         settings = {
+--                             stepping = {
+--                                 skipClasses = {
+--                                     "$JDK",
+--                                     "$Libraries",
+--                                 },
+--                             },
+--                         },
+--                     },
+--                 },
+--             },
+--         })
+--     end
+-- }
 EOF
 
 " Use completion-nvim in every buffer
