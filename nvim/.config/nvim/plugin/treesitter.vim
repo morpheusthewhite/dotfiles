@@ -1,7 +1,5 @@
 lua <<EOF
--- nvim-treesitter `main` branch: only manages parsers/queries. Highlighting is
--- started per buffer with vim.treesitter.start(). Needs the `tree-sitter` CLI
--- (brew install tree-sitter-cli) to compile parsers.
+-- Needs the `tree-sitter` CLI to compile parsers.
 local ok, ts = pcall(require, 'nvim-treesitter')
 if not ok then
     return
