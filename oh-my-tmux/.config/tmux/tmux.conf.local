@@ -410,8 +410,8 @@ set -g history-limit 50000
 set -g mode-keys vi
 set -g detach-on-destroy off    # killing a session hops to another, not to the shell
 
-# keep window numbers stable and hand-set names (claude/git/build)
-set -g renumber-windows off
+# renumber remaining windows when one is closed; keep hand-set names (claude/git/build)
+set -g renumber-windows on
 setw -g automatic-rename off
 
 # while claude runs in a window, show its conversation title (claude sets it
