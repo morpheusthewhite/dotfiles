@@ -20,6 +20,7 @@ nmap gr :action GotoDeclaration<cr>
 nmap gi :action GotoImplementation<cr>
 nmap <space>ef :action GotoFile<cr>
 nmap <space>ew :action FindInPath<cr>
+nmap <space>er :action ReplaceInPath<cr>
 nmap <space>c :action GotoClass<cr>
 nmap gs :action GotoSymbol<cr>
 nmap <space>ea :action SearchEverywhere<cr>
@@ -43,6 +44,7 @@ nmap <space>i :action Inline<cr>
 nmap <space>cn :action RenameElement<cr>
 nmap <space>ct :action ChangeTypeSignature<cr>
 nmap <space>cs :action ChangeSignature<cr>
+nmap <space>cr :action Refactorings.QuickListPopupAction<cr>
 
 " git blame
 nmap gb :action Annotate<cr>
@@ -85,3 +87,4 @@ vnoremap <C-y> "+y
 
 " terminal
 nmap <C-\> :action ActivateTerminalToolWindow<cr>
+set ideajoin
