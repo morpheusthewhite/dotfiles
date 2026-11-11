@@ -436,6 +436,11 @@ bind f display-popup -E -w 80% -h 80% -d "#{pane_current_path}" \
   "f=\$(fd --type f --hidden --exclude .git | fzf --preview 'bat --color=always --line-range :200 {}') \
    && tmux split-window -Z -c '#{pane_current_path}' \"nvim \\\"\$f\\\"\""
 
+# prefix + F: same as prefix + f, but also lists git-ignored files
+bind F display-popup -E -w 80% -h 80% -d "#{pane_current_path}" \
+  "f=\$(fd --type f --hidden --no-ignore --exclude .git --exclude node_modules | fzf --preview 'bat --color=always --line-range :200 {}') \
+   && tmux split-window -Z -c '#{pane_current_path}' \"nvim \\\"\$f\\\"\""
+
 # increase history size
 #set -g history-limit 10000
 
