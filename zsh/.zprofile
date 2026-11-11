@@ -21,9 +21,9 @@ autoload -U +X bashcompinit && bashcompinit
 
 ### aliases
 
-alias ls="exa"
-alias l="exa -al"
-alias la="exa -alh"
+alias ls="eza"
+alias l="eza -al"
+alias la="eza -alh"
 
 alias cat="bat"
 
@@ -123,3 +123,11 @@ mysql_command() {
     # Print the MySQL command
     echo "$MYSQL_CMD"
 }
+
+alias cc='claude'
+alias ccr='claude --resume'
+
+cq() {
+    claude -p "$*"
+}
+
