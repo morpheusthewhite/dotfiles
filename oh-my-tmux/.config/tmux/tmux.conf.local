@@ -428,6 +428,9 @@ bind -n M-Right select-pane -R
 bind -n M-Up    select-pane -U
 bind -n M-Down  select-pane -D
 
+# prefix + g: scratch shell in a popup, closes when the shell exits
+bind g display-popup -E -w 80% -h 80% -d "#{pane_current_path}"
+
 # prefix + f: fuzzy-find a file, open it in vim in a new zoomed pane
 bind f display-popup -E -w 80% -h 80% -d "#{pane_current_path}" \
   "f=\$(fd --type f --hidden --exclude .git | fzf --preview 'bat --color=always --line-range :200 {}') \
