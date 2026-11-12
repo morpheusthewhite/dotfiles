@@ -40,10 +40,6 @@ alias gcam="git commit --amend --no-edit"
 alias gcame="git commit --amend"
 alias grr="git reset --hard @{u}"
 
-# cq: run claude -p with all arguments joined as the prompt (quotes optional)
-cq() { claude -p "$*"; }
-alias cq="noglob cq"  # lets you type ? or * without quoting
-
 alias tf="terraform"
 
 alias tg="terragrunt"
@@ -131,7 +127,9 @@ mysql_command() {
 alias cc='claude'
 alias ccr='claude --resume'
 
+unalias cq 2>/dev/null
 cq() {
     claude -p "$*"
 }
+alias cq="noglob cq"  # lets you type ? or * without quoting
 
