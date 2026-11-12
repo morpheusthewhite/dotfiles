@@ -11,10 +11,9 @@ require("mason-lspconfig").setup()
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
     --Enable completion triggered by <c-x><c-o>
-    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+    vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
     -- Mappings.
     local opts = { noremap=true, silent=true }
@@ -33,9 +32,9 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<Leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     -- buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts) in telescope
     -- buf_set_keymap('n', '<Leader>m', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-    buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-    buf_set_keymap('n', '<Leader>lr', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+    buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.jump({ count = -1, float = true })<CR>', opts)
+    buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.jump({ count = 1, float = true })<CR>', opts)
+    buf_set_keymap('n', '<Leader>lr', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
     buf_set_keymap("n", "<Leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
     -- signature
@@ -163,53 +162,38 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- local root_markers = {'gradlew', 'mvnw', '.git'}
 -- local root_dir = require('jdtls.setup').find_root(root_markers)
 
--- TODO: this returns setup_handlers is nil. It seems that mason-lspconfig sets up servers automatically
---          so this is probably not needed anymore.
--- require("mason-lspconfig").setup_handlers {
-    -- The first entry (without a key) will be the default handler
-    -- and will be called for each installed server that doesn't have
-    -- a dedicated handler.
---     function (server_name) -- default handler (optional)
---         require("lspconfig")[server_name].setup {on_attach=on_attach, capabilities=capabilities}
---     end,
-    -- Next, you can provide a dedicated handler for specific servers.
---     jdtls = function ()
---         require("lspconfig").jdtls.setup({
---             root_dir = root_dir,
---             on_attach = on_attach,
---             capabilities = capabilities,
---             settings = {
---                 java = {
---                     format = {
---                         enabled = true,
---                         settings = {
---                             url = "/Users/francesco/Yoyo/styleguide/YoyoLabsJava.xml",
---                         },
---                     },
---                     project = {
---                         referencedLibraries = {
---                             "lib/**/*.jar",
---                         },
---                         sourcePaths = {
---                             "src",
---                         },
---                         outputPath = "bin",
---                     },
---                     debug = {
---                         settings = {
---                             stepping = {
---                                 skipClasses = {
---                                     "$JDK",
---                                     "$Libraries",
---                                 },
---                             },
---                         },
---                     },
+-- mason-lspconfig (v2) enables installed servers automatically, so we only
+-- need to give every server our capabilities and attach our keymaps.
+vim.lsp.config('*', { capabilities = capabilities })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('UserLspAttach', { clear = true }),
+    callback = function(args)
+        on_attach(vim.lsp.get_client_by_id(args.data.client_id), args.buf)
+    end,
+})
+
+-- Per-server overrides go through vim.lsp.config(). Example:
+-- vim.lsp.config('jdtls', {
+--     settings = {
+--         java = {
+--             format = {
+--                 enabled = true,
+--                 settings = { url = "/Users/francesco/Yoyo/styleguide/YoyoLabsJava.xml" },
+--             },
+--             project = {
+--                 referencedLibraries = { "lib/**/*.jar" },
+--                 sourcePaths = { "src" },
+--                 outputPath = "bin",
+--             },
+--             debug = {
+--                 settings = {
+--                     stepping = { skipClasses = { "$JDK", "$Libraries" } },
 --                 },
 --             },
---         })
---     end
--- }
+--         },
+--     },
+-- })
 EOF
 
 " Use completion-nvim in every buffer
