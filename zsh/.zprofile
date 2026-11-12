@@ -40,7 +40,11 @@ alias gcam="git commit --amend --no-edit"
 alias gcame="git commit --amend"
 alias grr="git reset --hard @{u}"
 
-alias tf="terraform" 
+# cq: run claude -p with all arguments joined as the prompt (quotes optional)
+cq() { claude -p "$*"; }
+alias cq="noglob cq"  # lets you type ? or * without quoting
+
+alias tf="terraform"
 
 alias tg="terragrunt"
 alias tga="terragrunt apply"
