@@ -410,17 +410,21 @@ set -g history-limit 50000
 set -g mode-keys vi
 set -g detach-on-destroy off    # killing a session hops to another, not to the shell
 
-# renumber remaining windows when one is closed; keep hand-set names (claude/git/build)
+# renumber remaining windows when one is closed
 set -g renumber-windows on
-setw -g automatic-rename off
+# windows follow their running command (#W) until you rename one explicitly
+# (prefix + , or new-window -n); tmux then turns automatic-rename off for that
+# window only, so hand-set names (claude/git/build) stay put.
+setw -g automatic-rename on
 
-# while claude runs in a window, show its conversation title (claude sets it
-# via the terminal title, i.e. #{pane_title}) instead of the window name.
+# while claude runs in an auto-named window, show its conversation title (claude
+# sets it via the terminal title, i.e. #{pane_title}) instead of the command.
+# Explicitly named windows (automatic-rename off) always show their own name.
 # Nothing is renamed, so the real name returns when claude exits. The pane
 # command is "claude" or, for the node build, a bare version like 2.1.5. The
 # regex drops claude's leading status glyph. Used by the two
 # tmux_conf_theme_window_status*_format variables above.
-set -g @win_name "#{?#{||:#{m:*claude*,#{pane_current_command}},#{m/r:^[0-9]+\\.[0-9]+,#{pane_current_command}}},#{s/^[^A-Za-z0-9]+ //:pane_title},#W}"
+set -g @win_name "#{?#{&&:#{automatic-rename},#{||:#{m:*claude*,#{pane_current_command}},#{m/r:^[0-9]+\\.[0-9]+,#{pane_current_command}}}},#{s/^[^A-Za-z0-9]+ //:pane_title},#W}"
 
 # Alt-arrow pane switching without prefix
 bind -n M-Left  select-pane -L
