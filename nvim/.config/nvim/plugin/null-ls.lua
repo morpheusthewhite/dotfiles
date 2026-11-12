@@ -7,17 +7,23 @@ none_ls.setup({
         -- .with({
         --     extra_args = { "--style=file:~/.clang-format" },
         -- })
+
+        none_ls.builtins.diagnostics.ktlint,
     },
     on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
+        if client:supports_method("textDocument/formatting") then
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
             vim.api.nvim_create_autocmd("BufWritePre", {
                 group = augroup,
                 buffer = bufnr,
                 callback = function()
-                    -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                    -- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
-                    vim.lsp.buf.format({async = false})
+                    -- only format through none-ls, so other servers
+                    -- (e.g. kotlin_lsp) don't format the buffer as well
+                    vim.lsp.buf.format({
+                        bufnr = bufnr,
+                        async = false,
+                        filter = function(c) return c.name == "null-ls" end,
+                    })
                 end,
             })
         end
