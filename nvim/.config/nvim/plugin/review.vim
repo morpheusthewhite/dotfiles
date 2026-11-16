@@ -26,3 +26,4 @@ vnoremap <leader>rn :Review note<cr>
 nnoremap <leader>re <cmd>Review edit<cr>
 nnoremap <leader>rd <cmd>Review delete<cr>
 nnoremap <leader>rx <cmd>Review export<cr>
+nnoremap <leader>rl <cmd>Review clear<cr>
