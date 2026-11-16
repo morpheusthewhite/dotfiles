@@ -170,5 +170,10 @@ Plug 'theHamsta/nvim-dap-virtual-text'
 
 Plug 'tpope/vim-repeat'
 
+" code review annotations on diffs
+Plug 'MunifTanjim/nui.nvim'
+Plug 'esmuellert/codediff.nvim'
+Plug 'georgeguimaraes/review.nvim'
+
 call plug#end()
 
