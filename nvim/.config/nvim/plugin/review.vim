@@ -1,6 +1,21 @@
 lua <<EOF2
 local ok, review = pcall(require, "review")
-if ok then review.setup({}) end
+if ok then
+  -- Only one kind of comment: everything is a "note" (the default type).
+  -- The type picker in the popup is hardcoded to four types upstream, so
+  -- disable cycling and the per-type keymaps instead.
+  review.setup({
+    keymaps = {
+      add_suggestion = false,
+      add_issue = false,
+      add_praise = false,
+      popup_cycle_type = false,
+    },
+    export = {
+      header = "Review comments, please address them. Lines prefixed with ~ refer to the old side of the diff.",
+    },
+  })
+end
 EOF2
 
 nnoremap <leader>rr <cmd>Review<cr>
