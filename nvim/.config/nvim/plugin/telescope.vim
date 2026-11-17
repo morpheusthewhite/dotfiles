@@ -7,6 +7,7 @@ require('telescope').setup {
         color_devicons = true,
 
         path_display = { 'filename_first' },
+        file_ignore_patterns = { '^.git/' },
         vimgrep_arguments = {
             'rg',
             '--color=never',
@@ -35,6 +36,11 @@ require('telescope').setup {
                 ["<C-x>"] = false,
                 ["<C-q>"] = actions.send_to_qflist,
             },
+        },
+    },
+    pickers = {
+        find_files = {
+            hidden = true,
         },
     },
     extensions = {
