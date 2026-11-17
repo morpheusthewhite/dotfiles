@@ -6,6 +6,14 @@ require('telescope').setup {
         prompt_prefix = '> ',
         color_devicons = true,
 
+        layout_strategy = 'horizontal',
+        layout_config = {
+            width = { padding = 0 },
+            height = { padding = 0 },
+            preview_cutoff = 0,
+        },
+        borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+
         file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
         qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
