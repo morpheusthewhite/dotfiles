@@ -6,6 +6,18 @@ require('telescope').setup {
         prompt_prefix = '> ',
         color_devicons = true,
 
+        path_display = { 'filename_first' },
+        vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--trim',
+        },
+
         layout_strategy = 'horizontal',
         layout_config = {
             width = { padding = 0 },
