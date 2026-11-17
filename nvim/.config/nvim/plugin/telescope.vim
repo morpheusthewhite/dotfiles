@@ -17,6 +17,7 @@ require('telescope').setup {
             '--column',
             '--smart-case',
             '--trim',
+            '--hidden',
         },
 
         layout_strategy = 'horizontal',
