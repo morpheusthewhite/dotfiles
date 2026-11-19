@@ -56,6 +56,7 @@ EOF
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ef <cmd>Telescope find_files<cr>
+nnoremap <leader>eF <cmd>Telescope find_files hidden=true no_ignore=true<cr>
 nnoremap <leader>ew <cmd>Telescope live_grep<cr>
 nnoremap <leader>eb <cmd>Telescope buffers<cr>
 nnoremap <leader>eh <cmd>Telescope help_tags<cr>
