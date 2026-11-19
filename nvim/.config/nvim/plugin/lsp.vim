@@ -1,4 +1,6 @@
 lua << EOF
+vim.o.winborder = "rounded"
+
 require("mason").setup({
 	registries = {
 		"github:nvim-java/mason-registry",
