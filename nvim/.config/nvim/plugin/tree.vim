@@ -25,8 +25,14 @@ require'nvim-tree'.setup {
       error = "?",
     }
   },
+  renderer = {
+    group_empty = true,
+    indent_width = 1,
+    indent_markers = { enable = false },
+  },
   update_focused_file = {
-    enable      = false,
+    enable      = true,
+    update_root = false,
     update_cwd  = false,
     ignore_list = {".cache", "node_modules"}
   },
@@ -36,7 +42,7 @@ require'nvim-tree'.setup {
     custom = {}
   },
   view = {
-    width = 30,
+    width = { min = 30, max = 60 },
     -- height = 30,
     side = 'left',
     relativenumber = true,
